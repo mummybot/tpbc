@@ -4,7 +4,7 @@
  * Also trigger an update of the Color Scheme CSS when a color is changed.
  */
 ( function( api ) {
-    var cssTemplate = wp.template( 'twentysixteen-color-scheme' ),
+    var cssTemplate = wp.template( 'tpbc-color-scheme' ),
         colorSchemeKeys = [
             'background_color',
             'page_background_color',

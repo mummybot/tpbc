@@ -1,0 +1,17 @@
+$color: pink;
+
+body {
+    background: $color;
+}
+
+div {
+    color: white;
+
+    a {
+        color: green;
+    }
+}
+
+div {
+    display: flex;
+}
