@@ -5,8 +5,8 @@
  * Contains the closing of the #content div and all content after
  *
  * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
+ * @subpackage TPBC
+ * @since TPBC 1.0
  */
 ?>
 
@@ -14,7 +14,7 @@
 
 		<footer id="colophon" class="site-footer" role="contentinfo">
 			<?php if ( has_nav_menu( 'primary' ) ) : ?>
-				<nav class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Primary Menu', 'twentysixteen' ); ?>">
+				<nav class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Primary Menu', 'tpbc' ); ?>">
 					<?php
 						wp_nav_menu( array(
 							'theme_location' => 'primary',
@@ -25,7 +25,7 @@
 			<?php endif; ?>
 
 			<?php if ( has_nav_menu( 'social' ) ) : ?>
-				<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Social Links Menu', 'twentysixteen' ); ?>">
+				<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Social Links Menu', 'tpbc' ); ?>">
 					<?php
 						wp_nav_menu( array(
 							'theme_location' => 'social',
@@ -41,14 +41,14 @@
 			<div class="site-info">
 				<?php
 					/**
-					 * Fires before the twentysixteen footer text for footer customization.
+					 * Fires before the tpbc footer text for footer customization.
 					 *
-					 * @since Twenty Sixteen 1.0
+					 * @since TPBC 1.0
 					 */
-					do_action( 'twentysixteen_credits' );
+					do_action( 'tpbc_credits' );
 				?>
 				<span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentysixteen' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentysixteen' ), 'WordPress' ); ?></a>
+				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'tpbc' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'tpbc' ), 'WordPress' ); ?></a>
 			</div><!-- .site-info -->
 		</footer><!-- .site-footer -->
 	</div><!-- .site-inner -->
@@ -57,3 +57,8 @@
 <?php wp_footer(); ?>
 </body>
 </html>
+<?php
+if (DISABLE_ABSOLUTE_LINKS == 'Y') {
+	ob_end_flush();
+}
+?>
