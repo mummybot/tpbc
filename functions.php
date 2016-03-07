@@ -229,15 +229,6 @@ add_action( 'wp_head', 'tpbc_javascript_detection', 0 );
  * @since TPBC 1.0
  */
 function tpbc_scripts() {
-	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'tpbc-fonts', tpbc_fonts_url(), array(), null );
-
-	// Add Genericons, used in the main stylesheet.
-	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.4.1' );
-
-	// Theme stylesheet.
-	wp_enqueue_style( 'tpbc-style', get_stylesheet_uri() );
-
 	wp_enqueue_script( 'tpbc-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151112', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -256,9 +247,9 @@ function tpbc_scripts() {
 	) );
 	
 	// Webpack built assets
-	wp_enqueue_style( 'main', get_template_directory_uri() . '/build/main.css', array(), '1.0.0' );
+	wp_enqueue_style( 'main', get_template_directory_uri() . '/build/styles.css', array(), '1.0.0' );
 
-	wp_enqueue_script( 'tpbc-bundle', get_template_directory_uri() . '/build/bundle.js', array(), '1.0.0', true );
+	wp_enqueue_script( 'tpbc-bundle', get_template_directory_uri() . '/build/index.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'tpbc_scripts' );
 
