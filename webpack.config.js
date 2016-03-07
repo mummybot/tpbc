@@ -9,7 +9,7 @@ var precss = require('precss');
 
 var buildPath = 'wp-content/themes/tpbc/build/';
 var webpackServerURL = 'http://localhost:8080';
-var proxyURL = 'http://tpbc.dev';
+var externalServerURL = 'http://tpbc.dev';
 
 var config = {
   // The entry point for your src code.
@@ -19,7 +19,7 @@ var config = {
     // Enable hot module reloading (HMR) for this entry point
     'webpack/hot/only-dev-server',
     // The location of the initial JS file.
-    path.join(__dirname, 'src/main.js')
+    path.join(__dirname, 'src/index.js')
   ],
   // The location where your built code will be served from, either:
   // - Development: in memory from the webpack-dev-server,
@@ -27,7 +27,7 @@ var config = {
   output: {
     // The path to write the files to.
     path: path.resolve(__dirname, 'wp-content/themes/tpbc/build'),
-    filename: 'bundle.js',
+    filename: 'index.js',
     // Tell the webpack dev server the absolute URL from where to serve the files.
     publicPath: webpackServerURL + '/' + buildPath
   },
@@ -39,16 +39,13 @@ var config = {
     contentBase: buildPath,
     proxy: {
       '*': {
-        target: proxyURL,
+        target: externalServerURL,
         bypass: function(req) {
           // Make sure that non-webpack assets have the correct host header so any vhost works correctly.
-          function setHeaderHostToProxyURL() {
-            req.headers.host = proxyURL.split('/')[2];
-          }
           if (req.headers && req.headers.accept) {
             // Detect requests that do not contain the build directory
             if (req.url.indexOf(buildPath) === -1) {
-              setHeaderHostToProxyURL();
+              req.headers.host = externalServerURL.split('/')[2];
             }
           }
         }
@@ -88,7 +85,7 @@ var config = {
       reload: false
     }),
     // Output the CSS as a single CSS file and set its name.
-    new ExtractTextPlugin('main.css', { allChunks: true }),
+    new ExtractTextPlugin('styles.css', { allChunks: true }),
     new webpack.HotModuleReplacementPlugin()
   ]
 };
