@@ -24,7 +24,31 @@ if (DISABLE_ABSOLUTE_LINKS == 'Y') {
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+
+	<div id="page">
+		<header>TPBC logo and menu</header>
+		<section>
+			<div class="cmpnt col1"><h2>Gallery</h2></div>
+		</section>
+		<section class="colVariant01">
+			<div class="col3">
+				<div class="cmpt"><h2>News</h2></div>
+			</div>
+			<div class="col3">
+				<div class="cmpnt"><h2>About</h2></div>
+				<div class="cmpnt"><h2>Meet the team</h2></div>
+			</div>
+			<div class="col3">
+				<div class="cmpnt"><h2>Join FNB TPBC</h2></div>
+				<div class="cmpnt"><h2>Newsletter</h2></div>
+			</div>
+		</section>
+	</div>
+
+
+<div id="page2" class="site">
+
+
 	<div class="site-inner">
 		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'tpbc' ); ?></a>
 

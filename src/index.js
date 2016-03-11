@@ -1,3 +1,3 @@
 /*global require*/
-require('./shared/core.scss');
-document.write(require('./content.js'));
+// document.write(require('./shared/content.js'));
+require('./shared/core.css');
