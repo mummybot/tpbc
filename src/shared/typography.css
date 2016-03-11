@@ -1,0 +1,26 @@
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    font-family: 'helvetica_neuethin';
+}
+
+
+html {
+    font-size: $fontSizeMobile;
+}
+
+h1, .h1 {
+    font-size: calc($fontSizeMobile * 3.57142857142857); // 50px
+}
+@media (min-width: $breakpointTablet) {
+    html {
+        font-size: $fontSizeTablet;
+    }
+
+    h1, .h1 {
+        font-size: calc($fontSizeTablet * 8.33333333333); // 100px
+    }
+}

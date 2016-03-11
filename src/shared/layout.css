@@ -1,0 +1,53 @@
+@import './variables.css';
+
+#page {
+    margin: auto;
+    width: 100%;
+    background: green;
+}
+
+section {
+    display: flex;
+    flex-flow: wrap;
+    padding: 0 5px;
+}
+
+.col1,
+.col2,
+.col3 {
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (min-width: $breakpointTablet) {
+    .col2,
+    .col3 {
+        width: 50%;
+    }
+
+    .colVariant01 {
+        .col3:first-child {
+            // If there are three columns and the first column is to expand the full width
+            background: purple;
+            width: 100%;
+        }
+    }
+}
+
+@media (min-width: $breakpointDesktop) {
+    .col2 {
+        width: 66%;
+    }
+    .col3,
+    .colVariant01 .col3:first-child {
+        width: 33%;
+    }
+
+}
+
+@media (min-width: $breakpointMaximum) {
+    #page {
+        width: $breakpointMaximum;
+    }
+}
