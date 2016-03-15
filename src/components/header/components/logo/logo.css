@@ -1,0 +1,11 @@
+@import '../../../../shared/variables.css';
+
+.tpbc-logo {
+    font-size: $fontSizeMobile;
+}
+
+@media (min-width: $breakpointTablet) {
+    .tpbc-logo {
+        font-size: $fontSizeTablet;
+    }
+}

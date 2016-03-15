@@ -1,0 +1,14 @@
+.hamburger {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    @mixin replace 16px,16px;
+
+    &.closed {
+        background-color: green;
+    }
+    &.open {
+        background-color: red;
+    }
+}

@@ -1,4 +1,4 @@
-/*Colours*/
+// Colours
 $background: #ededed;
 $foreground: #000;
 $inverseBackground: #000;
@@ -6,10 +6,10 @@ $inverseForeground: #fff;
 $tpbcRed: #ee3041;
 $tpbcYellow: #faad57;
 
-/*Dimensions*/
+// Dimensions
 $breakpointTablet: 400px;
 $breakpointDesktop: 800px;
 $breakpointMaximum: 1400px;
 
 $fontSizeMobile: 14px;
-$fontSizeTable: 12px;
+$fontSizeTablet: 12px;

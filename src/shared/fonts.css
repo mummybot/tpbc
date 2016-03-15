@@ -6,3 +6,10 @@
     font-style: normal;
 
 }
+@font-face {
+    font-family: 'helvetica_neuebold';
+    src: url('./assets/fonts/HelveticaNeue-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

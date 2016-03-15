@@ -1,0 +1,27 @@
+@import '../../shared/variables.css';
+
+.tagline {
+    font-family: 'helvetica_neuethin';
+    font-size: calc($fontSizeMobile * 2); // 28px
+    text-align: center;
+    padding: 10px 0;
+
+    background: $inverseForeground;
+    color: $inverseBackground;
+
+    strong {
+        font-family: 'helvetica_neuebold';
+        font-weight: normal;
+    }
+
+    img {
+        float: right;
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: $breakpointTablet) {
+    .tagline {
+        font-size: calc($fontSizeTablet * 2); // 24px
+    }
+}

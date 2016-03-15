@@ -6,6 +6,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 var postcssImport = require('postcss-import');
 var precss = require('precss');
+var calcFunction = require('postcss-calc-function').default;
 var stripInlineComments = require('postcss-strip-inline-comments');
 
 var buildPath = '/wp-content/themes/tpbc/build/';
@@ -45,11 +46,19 @@ var config = {
   module: {
     loaders: [
       {
-        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        noParse: [],
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015']
+        }
+      },
+      {
+        test: /\.(ttf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
         loader: 'file-loader'
       },
       { 
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         loader: 'url-loader?limit=8192'
       },
       {
@@ -60,7 +69,7 @@ var config = {
           presets: ['react', 'es2015']
         }
       },
-      { 
+      {
         test: /\.s?css$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap&importLoaders=1!postcss-loader?parser=postcss-scss')
       }
@@ -71,6 +80,7 @@ var config = {
       postcssImport({ addDependencyTo: webpack }),
       stripInlineComments,
       precss,
+      calcFunction,
       autoprefixer
     ];
   },

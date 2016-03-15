@@ -1,0 +1,7 @@
+@define-mixin replace $height $width {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    height: $height;
+    width: $width;
+}

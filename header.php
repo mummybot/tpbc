@@ -25,29 +25,31 @@ if (DISABLE_ABSOLUTE_LINKS == 'Y') {
 
 <body <?php body_class(); ?>>
 
-	<div id="page">
-		<header>TPBC logo and menu</header>
-		<section>
-			<div class="cmpnt col1"><h2>Gallery</h2></div>
-		</section>
-		<section class="colVariant01">
-			<div class="col3">
-				<div class="cmpt"><h2>News</h2></div>
-			</div>
-			<div class="col3">
-				<div class="cmpnt"><h2>About</h2></div>
-				<div class="cmpnt"><h2>Meet the team</h2></div>
-			</div>
-			<div class="col3">
-				<div class="cmpnt"><h2>Join FNB TPBC</h2></div>
-				<div class="cmpnt"><h2>Newsletter</h2></div>
-			</div>
-		</section>
-	</div>
+<?php include('src/components/header/header.php'); ?>
+<div id="page">
+	<?php if ( is_front_page() && is_home() ) : ?>
+		<?php include(dirname(__FILE__).'/src/components/tagline/tagline.php'); ?>
+	<?php endif ?>
+	<section>
+		<div class="container col1"><h2>Gallery</h2></div>
+	</section>
+	<section class="colVariant01">
+		<div class="col3">
+			<div class="cmpt"><h2>News</h2></div>
+		</div>
+		<div class="col3">
+			<div class="container"><h2>About</h2></div>
+			<div class="container"><h2>Meet the team</h2></div>
+		</div>
+		<div class="col3">
+			<div class="container"><h2>Join FNB TPBC</h2></div>
+			<div class="container"><h2>Newsletter</h2></div>
+		</div>
+	</section>
+</div>
 
 
-<div id="page2" class="site">
-
+<div id="page2" class="site" style="position: relative; z-index: 0;">
 
 	<div class="site-inner">
 		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'tpbc' ); ?></a>

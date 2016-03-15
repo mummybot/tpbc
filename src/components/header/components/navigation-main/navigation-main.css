@@ -1,0 +1,30 @@
+@import '../../../../shared/variables.css';
+.navigation-main {
+    font-family: 'helvetica_neuethin';
+    font-size: calc($fontSizeMobile * 2); // 28px
+
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &:link,
+        &:visited {
+            color: $inverseForeground;
+        }
+        &:hover,
+        &:active {
+            color: $tpbcYellow;
+        }
+    }
+}
+
+@media (min-width: $breakpointTablet) {
+    .navigation-main {
+        font-size: calc($fontSizeTablet * 2); // 24px
+
+        li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    }
+}

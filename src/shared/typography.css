@@ -1,3 +1,5 @@
+@import './variables.css';
+
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -5,6 +7,8 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
     font-family: 'helvetica_neuethin';
+    text-transform: uppercase;
+    margin-top: 0;
 }
 
 
@@ -13,7 +17,10 @@ html {
 }
 
 h1, .h1 {
-    font-size: calc($fontSizeMobile * 3.57142857142857); // 50px
+    font-size: calc($fontSizeMobile * 8.33333333333); // 116.6
+}
+h2, .h2 {
+    font-size: calc($fontSizeMobile * 4); // 56px
 }
 @media (min-width: $breakpointTablet) {
     html {
@@ -22,5 +29,8 @@ h1, .h1 {
 
     h1, .h1 {
         font-size: calc($fontSizeTablet * 8.33333333333); // 100px
+    }
+    h2, .h2 {
+        font-size: calc($fontSizeTablet * 4); // 48px
     }
 }

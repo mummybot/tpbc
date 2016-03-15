@@ -3,12 +3,13 @@
 #page {
     margin: auto;
     width: 100%;
-    background: green;
+    position: relative;
+    z-index: 0;
 }
 
 section {
     display: flex;
-    flex-flow: wrap;
+    flex-flow: row wrap;
     padding: 0 5px;
 }
 
@@ -29,7 +30,6 @@ section {
     .colVariant01 {
         .col3:first-child {
             // If there are three columns and the first column is to expand the full width
-            background: purple;
             width: 100%;
         }
     }
