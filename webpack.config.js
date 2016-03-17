@@ -11,7 +11,7 @@ var stripInlineComments = require('postcss-strip-inline-comments');
 
 var buildPath = '/wp-content/themes/tpbc/build/';
 var webpackServerURL = 'http://localhost:8080';
-var externalServerURL = 'http://tpbc.dev';
+var externalServerURL = 'http://tpbc.local';
 
 var config = {
   entry: [
@@ -48,6 +48,7 @@ var config = {
       {
         noParse: [],
         test: /\.jsx?$/,
+        exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015']
