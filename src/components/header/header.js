@@ -1,7 +1,6 @@
-/*global require*/
-require('./header.css');
+import header from './header.css';
 
-require('./components/logo/logo.js');
+import logo from './components/logo/logo.js';
 require('./components/navigation-main/navigation-main.js');
-require('./components/search/search.js');
-require('./components/hamburger/hamburger.js');
+import search from './components/search/search.js';
+import hamburger from './components/hamburger/hamburger.js';

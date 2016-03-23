@@ -1,6 +1,5 @@
-/*global require*/
-require('./shared/core.css');
+import core from './shared/core.css';
 
-require('./components/header/header.js');
-require('./components/tagline/tagline.js');
-require('./components/container/container.js');
+import header from './components/header/header.js';
+import tagline from './components/tagline/tagline.js';
+import container from './components/container/container.js';

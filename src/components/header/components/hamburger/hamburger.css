@@ -1,3 +1,5 @@
+@import '../../../../shared/mixins.css';
+
 .hamburger {
     display: block;
     position: absolute;

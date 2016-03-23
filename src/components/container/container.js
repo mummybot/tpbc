@@ -1,2 +1,1 @@
-/*global require*/
-require('./container.css');
+import container from './container.css';

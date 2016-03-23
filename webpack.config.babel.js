@@ -1,0 +1,109 @@
+/*global __dirname*/
+import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import autoprefixer from 'autoprefixer';
+import calcFunction from 'postcss-calc-function';
+import path from 'path';
+import postcssImport from 'postcss-import';
+import precss from 'precss';
+import stripInlineComments from 'postcss-strip-inline-comments';
+import webpack from 'webpack';
+
+const browserSyncPort = 3000,
+  buildPath = '/wp-content/themes/tpbc/build/',
+  externalServerURL = 'http://tpbc.local',
+  webpackServerURL = 'http://localhost:8080',
+  config = {
+    entry: [
+      `webpack-dev-server/client?${webpackServerURL}/`,
+      'webpack/hot/only-dev-server',
+      path.join(__dirname, 'src/index.js')
+    ],
+    output: {
+      path: path.resolve(__dirname, buildPath),
+      filename: 'index.js',
+      publicPath: buildPath
+    },
+    devtool: 'eval-source-map',
+    resolve: {alias: {}},
+    devServer: {
+      contentBase: buildPath,
+      proxy: {
+        '*': {
+          target: externalServerURL,
+          bypass: function bypass(req) {
+            // Make sure that non-webpack assets have the
+            // correct host header so any vhost works correctly.
+            if (req.headers && req.headers.accept) {
+              // Detect requests that do not contain the build directory
+              if (req.url.indexOf(buildPath) === -1) {
+                const domainIndex = 2;
+
+                req.headers.host = externalServerURL.split('/')[domainIndex];
+              }
+            }
+          }
+        }
+      }
+    },
+    module: {
+      loaders: [
+        {
+          noParse: [],
+          test: /\.jsx?$/,
+          exclude: /(node_modules)/,
+          loader: 'babel-loader',
+          query: {
+            presets: ['react', 'es2015']
+          }
+        },
+        {
+          test: /\.(ttf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
+          loader: 'file-loader'
+        },
+        {
+          test: /\.(png|jpg|gif|svg)$/,
+          loader: 'url-loader?limit=8192'
+        },
+        {
+          noParse: [],
+          test: /\.jsx?$/,
+          loader: 'babel-loader',
+          query: {
+            presets: ['react', 'es2015']
+          }
+        },
+        {
+          test: /\.s?css$/,
+          loader: ExtractTextPlugin.extract('style-loader','css-loader?sourceMap&importLoaders=1!postcss-loader?parser=postcss-scss')
+        }
+      ]
+    },
+    // Pass in webpack instance
+    postcss: function postcss(wp) {
+      return [
+        postcssImport({addDependencyTo: wp}),
+        stripInlineComments,
+        precss,
+        calcFunction,
+        autoprefixer
+      ];
+    },
+    plugins: [
+      new BrowserSyncPlugin(
+        {
+          host: 'localhost',
+          port: browserSyncPort,
+          proxy: webpackServerURL
+        },
+        {
+          reload: false
+        }
+      ),
+      // Output the CSS as a single CSS file and set its name.
+      new ExtractTextPlugin('styles.css', {allChunks: true}),
+      new webpack.HotModuleReplacementPlugin()
+    ]
+  };
+
+export default config;

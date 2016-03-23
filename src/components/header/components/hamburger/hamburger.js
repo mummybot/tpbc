@@ -1,2 +1,1 @@
-/*global require*/
-require('./hamburger.css');
+import hamburger from './hamburger.css';

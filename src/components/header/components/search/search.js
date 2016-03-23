@@ -1,2 +1,1 @@
-/*global require*/
-require('./search.css');
+import search from './search.css';

@@ -1,2 +1,1 @@
-/*global require*/
-require('./tagline.css');
+import tagline from './tagline.css';
