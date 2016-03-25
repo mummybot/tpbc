@@ -1,1 +1,0 @@
-<a href="#" class="hamburger closed">Show navigation</a>

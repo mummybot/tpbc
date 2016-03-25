@@ -24,8 +24,7 @@ const browserSyncPort = 3000,
       filename: 'index.js',
       publicPath: buildPath
     },
-    devtool: 'eval-source-map',
-    resolve: {alias: {}},
+    devtool: 'eval',
     devServer: {
       contentBase: buildPath,
       proxy: {
@@ -49,11 +48,19 @@ const browserSyncPort = 3000,
     module: {
       loaders: [
         {
-          noParse: [],
           test: /\.jsx?$/,
-          exclude: /(node_modules)/,
+          include: [
+            path.resolve(__dirname, 'src'),
+            path.resolve(__dirname, 'tools')
+          ],
+          exclude: [
+            /node_modules/,
+            path.resolve(__dirname, 'js'),
+            path.resolve(__dirname, 'build')
+          ],
           loader: 'babel-loader',
           query: {
+            plugins: ['transform-runtime'],
             presets: ['react', 'es2015']
           }
         },
@@ -64,14 +71,6 @@ const browserSyncPort = 3000,
         {
           test: /\.(png|jpg|gif|svg)$/,
           loader: 'url-loader?limit=8192'
-        },
-        {
-          noParse: [],
-          test: /\.jsx?$/,
-          loader: 'babel-loader',
-          query: {
-            presets: ['react', 'es2015']
-          }
         },
         {
           test: /\.s?css$/,

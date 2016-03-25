@@ -1,16 +1,35 @@
+@import '../../../../shared/variables.css';
 @import '../../../../shared/mixins.css';
 
+$dimensions: 32px;
+
 .hamburger {
+    color: $inverseForeground;
     display: block;
     position: absolute;
     top: 0;
     right: 0;
-    @mixin replace 16px,16px;
+    line-height: 1;
+    font-size: $dimensions;
+    @mixin replace $dimensions $dimensions;
+
+    &::before {
+        display: block;
+        position: absolute;
+        height: $dimensions;
+        width: $dimensions;
+        top: 0;
+        left: -$dimensions;
+    }
 
     &.closed {
-        background-color: green;
+        &::before {
+            content:'\2630'; // ☰
+        }
     }
     &.open {
-        background-color: red;
+        &::before {
+            content:'\276e'; // ❮
+        }
     }
 }
