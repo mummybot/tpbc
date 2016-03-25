@@ -12,5 +12,5 @@ var Hamburger = React.createClass({
 });
 ReactDOM.render(
   <Hamburger />,
-  document.querySelector('.header .container')
+  document.querySelector('.hamburgerMount')
 );
