@@ -12,16 +12,18 @@ import webpack from 'webpack';
 const browserSyncPort = 3000,
   buildPath = '/wp-content/themes/tpbc/build/',
   externalServerURL = 'http://tpbc.local',
-  webpackServerURL = 'http://localhost:8080',
+  webpackServerURL = 'http://' + require("ip").address() + ':8080',
   config = {
-    entry: [
-      `webpack-dev-server/client?${webpackServerURL}/`,
-      'webpack/hot/only-dev-server',
-      path.join(__dirname, 'src/index.js')
-    ],
+    entry: {
+      app: [
+        `webpack-dev-server/client?${webpackServerURL}/`,
+        'webpack/hot/only-dev-server',
+        path.join(__dirname, 'src/index.js')
+      ]
+    },
     output: {
       path: path.resolve(__dirname, buildPath),
-      filename: 'index.js',
+      filename: '[name]-bundle.js',
       publicPath: buildPath
     },
     devtool: 'eval',
@@ -60,7 +62,7 @@ const browserSyncPort = 3000,
           ],
           loader: 'babel-loader',
           query: {
-            plugins: ['transform-runtime'],
+            // plugins: ['transform-runtime'],
             presets: ['react', 'es2015']
           }
         },

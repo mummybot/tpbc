@@ -249,7 +249,7 @@ function tpbc_scripts() {
 	// Webpack built assets
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/build/styles.css', array(), '1.0.0' );
 
-	wp_enqueue_script( 'tpbc-bundle', get_template_directory_uri() . '/build/index.js', array(), '1.0.0', true );
+	wp_enqueue_script( 'tpbc-bundle', get_template_directory_uri() . '/build/app-bundle.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'tpbc_scripts' );
 

@@ -60,7 +60,7 @@
 if (INJECT_LIVERELOAD == 'Y') {
 ?>
 	<script>
-		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':3002/livereload.js?snipver=1"></' + 'script>')
+		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':3003/livereload.js?snipver=1"></' + 'script>')
 	</script>
 <?php
 }

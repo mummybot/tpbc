@@ -1,1 +1,1 @@
-import tagline from './tagline.css';
+import s from './tagline.css';

@@ -10,8 +10,10 @@
   "dependencies": {
     "babel-polyfill": "^6.7.2",
     "babel-runtime": "^6.6.1",
+    "ncp": "^2.0.0",
     "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react-dom": "^0.14.0",
+    "rimraf": "^2.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
@@ -30,6 +32,7 @@
     "eslint-plugin-react": "^4.2.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
+    "ip": "^1.1.2",
     "livereload": "^0.4.1",
     "normalize-css": "^2.3.1",
     "postcss-calc-function": "^1.1.0",
@@ -44,16 +47,30 @@
     "react-hot-loader": "^1.3.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
+    "watch": "^0.17.1",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
     "test": "npm run lint",
+    "lint": "eslint ./src; exit 0",
+
     "start": "npm run setup",
-    "setup": "babel-node ./tools/start.js & npm run start-dev-server",
+
+    "clean": "rimraf build",
+    
+    "watch": "npm run watch:php & npm run watch:img",
+    "watch:php": "watch 'npm run build:php' src --filter=tools/watch.php.js --ignoreDotFiles",
+    "build:php": "ncp src build --filter=^[A-Za-z\\-\/]*\\(\\.php\\|$\\)",
+    "watch:img": "watch 'npm run build:img' src --filter=tools/watch.img.js --ignoreDotFiles",
+    "build:img": "ncp src build --filter=^[A-Za-z\\-\/]*\\(\\.svg\\|\\.png\\|\\.jpg\\|\\.gif\\|$\\)",
+
+    "livereload": "babel-node ./tools/livereloadExternalServer.js",
+
+    "setup": "npm run clean & npm run watch & npm run livereload & npm run start-dev-server",
     "start-dev-server": "webpack-dev-server 'webpack-dev-server/client?/' --host 0.0.0.0 --port 8080",
-    "build": "webpack ./src/app.js ./build/app_bundle.js",
-    "lint": "eslint ./src; exit 0"
+
+    "build": "npm run clean & webpack ./src/app.js ./build/app_bundle.js & npm run build:php & npm run build:img"
   },
   "preferGlobal": false,
   "private": true,

@@ -1,7 +1,11 @@
 @import '../../../../shared/variables.css';
-.navigation-main {
+.navigationMain {
     font-family: 'helvetica_neuethin';
     font-size: calc($fontSizeMobile * 2); // 28px
+
+    li {
+        display: block;
+    }
 
     a {
         text-decoration: none;
@@ -19,7 +23,7 @@
 }
 
 @media (min-width: $breakpointTablet) {
-    .navigation-main {
+    .navigationMain {
         font-size: calc($fontSizeTablet * 2); // 24px
 
         li {

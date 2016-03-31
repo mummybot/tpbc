@@ -3,19 +3,22 @@
   Add livereload for external server
   https://github.com/napcs/node-livereload
  */
-var path = require('path');
-var livereloadExternalServer = require('livereload');
+const path = require('path'),
+  livereload = require('livereload');
 
-module.exports = function() {
+function createServer() {
   // Directory location of external files to be watched.
-  var dir = path.join(__dirname, '/../');
-  var config = {
-    exclusions: [/\\html\//,/\\.css\//,/\\.js\//,/\\.png\//,/\\.gif\//,/\\.jpg\//,/\\.php5\//,/\\.py\//,/\\.rb\//,/\\.erb\//,/\\.coffee\//],
-    port: 3002,
-    usePolling: true
-  };
-  var server = livereloadExternalServer.createServer(config);
+  const port = 3003,
+    dir = path.join(__dirname, '/../build'),
+    config = {
+      port: port,
+      usePolling: true
+    },
+    server = livereload.createServer(config);
+  
   server.watch(dir);
-  console.log('livereload server running on http://localhost:3002');
+  console.log('livereload server running on http://localhost:' + port);
   console.log('Watching ' + dir);
 };
+
+createServer();
