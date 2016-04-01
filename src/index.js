@@ -1,5 +1,6 @@
-import core from './shared/core.css';
+import Header from './components/header/header.js';
+import _container from './components/container/container.js';
+import _tagline from './components/tagline/tagline.js';
+import s from './shared/core.css';
 
-import header from './components/header/header.js';
-import tagline from './components/tagline/tagline.js';
-import container from './components/container/container.js';
+const _header = new Header(document.querySelector('header .container'));

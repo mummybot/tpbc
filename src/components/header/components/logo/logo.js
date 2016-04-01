@@ -1,1 +1,1 @@
-import logo from './logo.css';
+import s from './logo.css';

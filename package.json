@@ -54,22 +54,16 @@
   "scripts": {
     "test": "npm run lint",
     "lint": "eslint ./src; exit 0",
-
     "start": "npm run setup",
-
     "clean": "rimraf build",
-    
     "watch": "npm run watch:php & npm run watch:img",
     "watch:php": "watch 'npm run build:php' src --filter=tools/watch.php.js --ignoreDotFiles",
-    "build:php": "ncp src build --filter=^[A-Za-z\\-\/]*\\(\\.php\\|$\\)",
+    "build:php": "ncp src build --filter=^[A-Za-z\\-/]*\\(\\.php\\|$\\)",
     "watch:img": "watch 'npm run build:img' src --filter=tools/watch.img.js --ignoreDotFiles",
-    "build:img": "ncp src build --filter=^[A-Za-z\\-\/]*\\(\\.svg\\|\\.png\\|\\.jpg\\|\\.gif\\|$\\)",
-
+    "build:img": "ncp src build --filter=^[A-Za-z\\-/]*\\(\\.svg\\|\\.png\\|\\.jpg\\|\\.gif\\|$\\)",
     "livereload": "babel-node ./tools/livereloadExternalServer.js",
-
     "setup": "npm run clean & npm run watch & npm run livereload & npm run start-dev-server",
     "start-dev-server": "webpack-dev-server 'webpack-dev-server/client?/' --host 0.0.0.0 --port 8080",
-
     "build": "npm run clean & webpack ./src/app.js ./build/app_bundle.js & npm run build:php & npm run build:img"
   },
   "preferGlobal": false,

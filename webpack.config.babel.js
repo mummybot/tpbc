@@ -26,7 +26,7 @@ const browserSyncPort = 3000,
       filename: '[name]-bundle.js',
       publicPath: buildPath
     },
-    devtool: 'eval',
+    devtool: 'source-map',
     devServer: {
       contentBase: buildPath,
       proxy: {
@@ -62,7 +62,6 @@ const browserSyncPort = 3000,
           ],
           loader: 'babel-loader',
           query: {
-            // plugins: ['transform-runtime'],
             presets: ['react', 'es2015']
           }
         },
@@ -76,7 +75,9 @@ const browserSyncPort = 3000,
         },
         {
           test: /\.s?css$/,
-          loader: ExtractTextPlugin.extract('style-loader','css-loader?sourceMap&importLoaders=1!postcss-loader?parser=postcss-scss')
+          loader: ExtractTextPlugin.extract('style-loader',
+          `css-loader?sourceMap&importLoaders=1
+          !postcss-loader?parser=postcss-scss`)
         }
       ]
     },

@@ -33,3 +33,9 @@ $dimensions: 32px;
         }
     }
 }
+
+@media (min-width: $breakpointTablet) {
+    .hamburger {
+        display: none;
+    }
+}
