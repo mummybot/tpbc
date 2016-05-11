@@ -53,18 +53,9 @@
 		</footer><!-- .site-footer -->
 	</div><!-- .site-inner -->
 </div><!-- .site -->
+<div id="app"></div>
 
 <?php wp_footer(); ?>
-<?php
-// Add Livereload
-if (INJECT_LIVERELOAD == 'Y') {
-?>
-	<script>
-		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':3003/livereload.js?snipver=1"></' + 'script>')
-	</script>
-<?php
-}
-?>
 </body>
 </html>
 <?php

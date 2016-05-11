@@ -11,8 +11,9 @@
     .container {
         position: absolute;
         top: 0;
-        left: 0;
+        left: -9999px;
         background-color: $inverseBackground;
+        transition: left 0.3s cubic-bezier(.54,1.07,.66,.98);
     }
 }
 

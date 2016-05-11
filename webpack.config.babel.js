@@ -18,7 +18,7 @@ const browserSyncPort = 3000,
       app: [
         `webpack-dev-server/client?${webpackServerURL}/`,
         'webpack/hot/only-dev-server',
-        path.join(__dirname, 'src/index.js')
+        path.join(__dirname, 'src/index.jsx')
       ]
     },
     output: {
@@ -47,6 +47,9 @@ const browserSyncPort = 3000,
         }
       }
     },
+    resolve: {
+      extensions: ['', '.js', '.jsx']
+    },
     module: {
       loaders: [
         {
@@ -62,7 +65,7 @@ const browserSyncPort = 3000,
           ],
           loader: 'babel-loader',
           query: {
-            presets: ['react', 'es2015']
+            presets: ['es2015', 'react']
           }
         },
         {
