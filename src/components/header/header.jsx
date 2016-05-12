@@ -48,7 +48,7 @@ export default React.createClass({
   updateBrowser() {
     // Menu is closed
     if (this.state.menu === CLOSED) {
-      if (window.innerWidth > BREAKPOINT_TABLET) {
+      if (window.innerWidth >= BREAKPOINT_TABLET) {
         this.setStyles(AUTO, AUTO, AUTO);
       } else {
         this.setStyles(
@@ -59,7 +59,7 @@ export default React.createClass({
       }
     } else
     // Menu is open
-    if (window.innerWidth > BREAKPOINT_TABLET) {
+    if (window.innerWidth >= BREAKPOINT_TABLET) {
       this.setStyles(AUTO, AUTO, AUTO);
     } else {
       this.setStyles(
