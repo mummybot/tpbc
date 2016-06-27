@@ -245,7 +245,10 @@ function tpbc_scripts() {
 		'expand'   => __( 'expand child menu', 'tpbc' ),
 		'collapse' => __( 'collapse child menu', 'tpbc' ),
 	) );
-	
+
+	// To allow eval to work
+	wp_enqueue_script( 'react', get_template_directory_uri() . '/node_modules/react/dist/react.min.js', array(), '1.0.0' );
+
 	// Webpack built assets
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/build/styles.css', array(), '1.0.0' );
 

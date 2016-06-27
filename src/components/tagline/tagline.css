@@ -4,6 +4,7 @@
     font-family: 'helvetica_neuethin';
     font-size: calc($fontSizeMobile * 2); // 28px
     text-align: center;
+    margin: 0;
     padding: 10px 0;
 
     background: $inverseForeground;

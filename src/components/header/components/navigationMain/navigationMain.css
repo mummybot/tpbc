@@ -2,6 +2,7 @@
 .navigationMain {
     font-family: 'helvetica_neuethin';
     font-size: calc($fontSizeMobile * 2); // 28px
+    letter-spacing: 1px;
 
     li {
         display: block;
@@ -25,6 +26,7 @@
 @media (min-width: $breakpointTablet) {
     .navigationMain {
         font-size: calc($fontSizeTablet * 2); // 24px
+        padding-top: 5px;
 
         li {
             display: inline-block;

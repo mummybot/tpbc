@@ -1,16 +1,12 @@
-import {Route, Router, hashHistory} from 'react-router';
-import Header from './components/header/header';
+import {Router, hashHistory} from 'react-router';
 import React from 'react';
 import ReactDom from 'react-dom';
 import _container from './components/container/container';
 import _tagline from './components/tagline/tagline';
+import routes from './shared/routes';
 import s from './shared/core.css';
-
-const routes = <Route path="/" component={Header}>
-  <Route path="/menu/:menu" component={Header} />
-</Route>;
 
 ReactDom.render(
   <Router history={hashHistory}>{routes}</Router>,
-  document.getElementById('headerMount')
+  document.querySelector('header')
 );

@@ -53,7 +53,6 @@
 		</footer><!-- .site-footer -->
 	</div><!-- .site-inner -->
 </div><!-- .site -->
-<div id="app"></div>
 
 <?php wp_footer(); ?>
 </body>

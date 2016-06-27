@@ -2,6 +2,8 @@
 
 .tpbc-logo {
     font-size: $fontSizeMobile;
+    display: inline-block;
+    margin: 0 0 0 20px;
 }
 
 @media (min-width: $breakpointTablet) {

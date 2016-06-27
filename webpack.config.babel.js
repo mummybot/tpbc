@@ -95,6 +95,11 @@ const browserSyncPort = 3000,
       ];
     },
     plugins: [
+      new webpack.DefinePlugin(
+        {
+          IN_BROWSER: true
+        }
+      ),
       new BrowserSyncPlugin(
         {
           host: 'localhost',

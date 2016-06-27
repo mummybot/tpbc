@@ -25,7 +25,9 @@ if (DISABLE_ABSOLUTE_LINKS == 'Y') {
 
 <body <?php body_class(); ?>>
 
+
 <?php include('src/components/header/header.php'); ?>
+
 <div id="page">
 	<?php if ( is_front_page() && is_home() ) : ?>
 		<?php include(dirname(__FILE__).'/src/components/tagline/tagline.php'); ?>

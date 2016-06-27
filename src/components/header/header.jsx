@@ -4,6 +4,7 @@ import _logo from './components/logo/logo';
 import _navigationMain from './components/navigationMain/navigationMain';
 import _search from './components/search/search';
 import {hashHistory} from 'react-router';
+import insertExistingHTML from '../../shared/insertExistingHTML';
 import s from './header.css';
 
 const OPEN = 'open';
@@ -26,6 +27,8 @@ export default React.createClass({
   },
   componentDidMount() {
     this.domNode = document.querySelector('.header .container');
+    this.bodyNode = document.querySelector('body');
+    this.headerNode = document.querySelector('header');
 
     window.addEventListener('hashchange', this.handleHashChange);
     window.addEventListener('resize', this.updateBrowser);
@@ -46,6 +49,8 @@ export default React.createClass({
     style.left = left;
   },
   updateBrowser() {
+    this.bodyNode.style.paddingTop = `${this.headerNode.offsetHeight}px`;
+
     // Menu is closed
     if (this.state.menu === CLOSED) {
       if (window.innerWidth >= BREAKPOINT_TABLET) {
@@ -101,6 +106,15 @@ export default React.createClass({
   },
   render() {
     return <div>
+      {insertExistingHTML('.tpbc-logo')}
+      <div className="container">
+        {insertExistingHTML(
+          'header .container .navigationMain'
+        )}
+        {insertExistingHTML(
+          'header .container form'
+        )}
+      </div>
       <Hamburger toggle={this.toggle} menu={this.state.menu} />
     </div>;
   }
