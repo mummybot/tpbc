@@ -1,0 +1,10 @@
+@import './variables.css';
+
+.section {
+    padding-top: 45px;
+
+    &.inverse {
+        color: $inverseForeground;
+        background-color: $inverseBackground;
+    }
+}

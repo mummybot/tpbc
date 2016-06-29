@@ -31,23 +31,28 @@ if (DISABLE_ABSOLUTE_LINKS == 'Y') {
 <div id="page">
 	<?php if ( is_front_page() && is_home() ) : ?>
 		<?php include(dirname(__FILE__).'/src/components/tagline/tagline.php'); ?>
+
+		<section>
+			<div class="container col1"><h2>Gallery</h2></div>
+		</section>
+		<section class="colVariant01 inverse section sectionHomeTop">
+			<div class="col3">
+				<?php if ( is_active_sidebar( 'home_top_widgets_1' ) ) : ?>
+					<?php dynamic_sidebar( 'home_top_widgets_1' ); ?>
+				<?php endif; ?>
+			</div>
+			<div class="col3">
+				<?php if ( is_active_sidebar( 'home_top_widgets_2' ) ) : ?>
+					<?php dynamic_sidebar( 'home_top_widgets_2' ); ?>
+				<?php endif; ?>
+			</div>
+			<div class="col3">
+				<?php if ( is_active_sidebar( 'home_top_widgets_3' ) ) : ?>
+					<?php dynamic_sidebar( 'home_top_widgets_3' ); ?>
+				<?php endif; ?>
+			</div>
+		</section>
 	<?php endif ?>
-	<section>
-		<div class="container col1"><h2>Gallery</h2></div>
-	</section>
-	<section class="colVariant01">
-		<div class="col3">
-			<div class="cmpt"><h2>News</h2></div>
-		</div>
-		<div class="col3">
-			<div class="container"><h2>About</h2></div>
-			<div class="container"><h2>Meet the team</h2></div>
-		</div>
-		<div class="col3">
-			<div class="container"><h2>Join FNB TPBC</h2></div>
-			<div class="container"><h2>Newsletter</h2></div>
-		</div>
-	</section>
 </div>
 
 

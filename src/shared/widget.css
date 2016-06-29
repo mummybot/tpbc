@@ -1,0 +1,49 @@
+@import './variables.css';
+
+.widget {
+    margin-bottom: calc($fontSizeMobile * 6); // 72px
+
+    h2 a,
+    h3 a {
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .widgetNews {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            margin: 0;
+            padding: 0;
+        }
+        h3 {
+            text-transform: none;
+            margin-bottom: 0;
+
+            span {
+                color: $inverseAside;
+                display: inline-block;
+                font-size: calc($fontSizeMobile * 1.2857); // 18px
+                line-height: 1;
+            }
+        }
+    }
+}
+
+@media (min-width: $breakpointTablet) {
+    .widget {
+        margin-bottom: calc($fontSizeTablet * 3.42857142857143); // 48px
+        padding: 0 20px;
+
+        .widgetNews {
+            h3 {
+                span {
+                    font-size: calc($fontSizeTablet * 1.166666666666); // 14px
+                }
+            }
+        }
+    }
+}

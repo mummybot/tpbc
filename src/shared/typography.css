@@ -1,37 +1,93 @@
 @import './variables.css';
 
+html {
+    font-family: 'helvetica_neuethin';
+    letter-spacing: 1px;
+    line-height: 1.28571428571429;
+}
+
 h1, .h1,
 h2, .h2,
 h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-    font-family: 'helvetica_neuethin';
+    font-weight: normal;
     text-transform: uppercase;
     margin-top: 0;
     letter-spacing: 1px;
+    line-height: 1;
+    margin: 0;
 }
-
 
 html {
     font-size: $fontSizeMobile;
 }
 
 h1, .h1 {
-    font-size: calc($fontSizeMobile * 8.33333333333); // 116.6
+    font-size: calc($fontSizeMobile * 8.33333333333); // 100
 }
+
 h2, .h2 {
-    font-size: calc($fontSizeMobile * 4); // 56px
+    font-size: calc($fontSizeMobile * 4); // 48px
+    margin-bottom: calc($fontSizeMobile * 2); // 24px
 }
+
+h3, .h3 {
+    font-size: calc($fontSizeMobile * 2); // 24px
+    margin-bottom: $fontSizeMobile; // 12px
+}
+
+ul, ol, p {
+    margin: 0 0 $fontSizeMobile;
+}
+
+a {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+        color: $foreground;
+        cursor: pointer;
+    }
+    &:hover,
+    &:active {
+        text-decoration: none;
+    }
+}
+
+.inverse {
+    a {
+        &:link,
+        &:visited{
+            color: $inverseForeground;
+        }
+        &:hover,
+        &:active {
+            color: $tpbcYellow;
+        }
+    }
+}
+
 @media (min-width: $breakpointTablet) {
     html {
         font-size: $fontSizeTablet;
     }
 
     h1, .h1 {
-        font-size: calc($fontSizeTablet * 8.33333333333); // 100px
+        font-size: calc($fontSizeTablet * 7.14285714285714); // 100px
     }
     h2, .h2 {
-        font-size: calc($fontSizeTablet * 4); // 48px
+        font-size: calc($fontSizeTablet * 3.42857142857143); // 48px
+        margin-bottom: calc($fontSizeTablet * 3.42857142857143); // 48px
+    }
+
+    h3, .h3 {
+        font-size: calc($fontSizeTablet * 1.71428571428571); // 24px
+        margin-bottom: $fontSizeTablet; // 14px
+    }
+
+    ul, ol, p {
+        margin: 0 0 $fontSizeTablet;
     }
 }

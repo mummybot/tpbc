@@ -4,7 +4,6 @@
 $dimensions: 32px;
 
 .hamburger {
-    color: $inverseForeground;
     display: block;
     position: absolute;
     top: 0;

@@ -1,4 +1,4 @@
-<div class="wrapperHeader">
+<div class="wrapperHeader inverse">
 	<header class="header">
 		<?php include(dirname(__FILE__).'/components/logo/logo.php'); ?>
 
