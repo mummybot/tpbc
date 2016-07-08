@@ -166,6 +166,33 @@ function tpbc_widgets_init() {
 	) );
 
 	register_sidebar( array(
+		'name'          => 'Home bottom widgets left',
+		'id'            => 'home_bottom_widgets_1',
+		'before_widget' => '<div class="widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => 'Home bottom widgets centre',
+		'id'            => 'home_bottom_widgets_2',
+		'before_widget' => '<div class="widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => 'Home bottom widgets right',
+		'id'            => 'home_bottom_widgets_3',
+		'before_widget' => '<div class="widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'tpbc' ),
 		'id'            => 'sidebar-1',
 		'description'   => __( 'Add widgets here to appear in your sidebar.', 'tpbc' ),

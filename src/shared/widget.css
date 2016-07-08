@@ -9,6 +9,10 @@
         display: inline-block;
     }
 
+    .btn {
+        margin-top: calc($fontSizeMobile * 2); // 24px
+    }
+
     .widgetNews {
         ul {
             list-style: none;
@@ -37,6 +41,10 @@
     .widget {
         margin-bottom: calc($fontSizeTablet * 3.42857142857143); // 48px
         padding: 0 20px;
+
+        .btn {
+            margin-top: calc($fontSizeTablet * 2); // 28px
+        }
 
         .widgetNews {
             h3 {

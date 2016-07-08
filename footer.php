@@ -12,6 +12,26 @@
 
 		</div><!-- .site-content -->
 
+		<?php if ( is_front_page() ) : ?>
+			<section class="colVariant01 inverse section sectionHomeTop">
+				<div class="col3">
+					<?php if ( is_active_sidebar( 'home_bottom_widgets_1' ) ) : ?>
+						<?php dynamic_sidebar( 'home_bottom_widgets_1' ); ?>
+					<?php endif; ?>
+				</div>
+				<div class="col3">
+					<?php if ( is_active_sidebar( 'home_bottom_widgets_2' ) ) : ?>
+						<?php dynamic_sidebar( 'home_bottom_widgets_2' ); ?>
+					<?php endif; ?>
+				</div>
+				<div class="col3">
+					<?php if ( is_active_sidebar( 'home_bottom_widgets_3' ) ) : ?>
+						<?php dynamic_sidebar( 'home_bottom_widgets_3' ); ?>
+					<?php endif; ?>
+				</div>
+			</section>
+		<?php endif ?>
+
 		<footer id="colophon" class="site-footer" role="contentinfo">
 			<?php if ( has_nav_menu( 'primary' ) ) : ?>
 				<nav class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Primary Menu', 'tpbc' ); ?>">

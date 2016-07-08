@@ -1,7 +1,7 @@
 @import './variables.css';
 
 html {
-    font-family: 'helvetica_neuethin';
+    font-family: 'helvetica_neuethin', arial, sans-serif;
     letter-spacing: 1px;
     line-height: 1.28571428571429;
 }
@@ -25,7 +25,7 @@ html {
 }
 
 h1, .h1 {
-    font-size: calc($fontSizeMobile * 8.33333333333); // 100
+    font-size: calc($fontSizeMobile * 4); // 48px
 }
 
 h2, .h2 {
@@ -79,7 +79,7 @@ a {
     }
     h2, .h2 {
         font-size: calc($fontSizeTablet * 3.42857142857143); // 48px
-        margin-bottom: calc($fontSizeTablet * 3.42857142857143); // 48px
+        margin-bottom: calc($fontSizeTablet * 3.42857142857143 - $fontSizeTablet); // 34px
     }
 
     h3, .h3 {
