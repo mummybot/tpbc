@@ -42,6 +42,10 @@
         margin-bottom: calc($fontSizeTablet * 3.42857142857143); // 48px
         padding: 0 20px;
 
+        article {
+            margin: 0;
+        }
+
         .btn {
             margin-top: calc($fontSizeTablet * 2); // 28px
         }

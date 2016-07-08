@@ -11,6 +11,7 @@ $tpbcYellow: #faad57;
 
 // Dimensions
 $breakpointTablet: 400px;
+$breakpointTabletHorizontal: 600px;
 $breakpointDesktop: 800px;
 $breakpointMaximum: 1400px;
 

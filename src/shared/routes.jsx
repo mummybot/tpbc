@@ -1,3 +1,4 @@
+import Footer from '../components/footer/footer';
 import Header from '../components/header/header';
 import React from 'react';
 import {Route} from 'react-router';

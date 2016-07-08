@@ -56,6 +56,12 @@ a {
     }
 }
 
+h1, .h1 {
+    a {
+        text-decoration: none;
+    }
+}
+
 .inverse {
     a {
         &:link,
@@ -88,6 +94,6 @@ a {
     }
 
     ul, ol, p {
-        margin: 0 0 $fontSizeTablet;
+        margin: 0 0 $fontSizeTablet; // 14px
     }
 }

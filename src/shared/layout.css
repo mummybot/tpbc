@@ -7,7 +7,7 @@
     z-index: 0;
 }
 
-section {
+.colWrapper {
     display: flex;
     flex-flow: row wrap;
     padding: 0 5px;
@@ -19,6 +19,10 @@ section {
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
+}
+
+article {
+    padding: 0 5px;
 }
 
 @media (min-width: $breakpointTablet) {
@@ -43,11 +47,14 @@ section {
     .colVariant01 .col3:first-child {
         width: 33%;
     }
+    .colWrapper {
+        margin: 0 auto;
+        padding: 0;
+        max-width: $breakpointMaximum;
+    }
 
-}
-
-@media (min-width: $breakpointMaximum) {
-    #page {
-        width: $breakpointMaximum;
+    article {
+        padding: 0;
+        margin: 0 20px;
     }
 }

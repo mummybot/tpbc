@@ -1,0 +1,101 @@
+@import '../../shared/variables.css';
+
+.site-footer {
+    color: $inverseForeground;
+    background-color: $inverseBackground;
+    font-weight: bold;
+    position: relative;
+
+    nav {
+        border-top: 1px solid $inverseForeground;
+        padding: 45px 5px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: calc($fontSizeMobile * 1.16666666666667); // 14px
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            background-repeat: no-repeat;
+            background-position: 0 center;
+            display: inline-block;
+            padding: 15px 0 15px 70px;
+            text-decoration: none;
+        }
+    }
+    .menu-item-39 a {
+        background-image: url('../../shared/assets/img/social-facebook.gif');
+    }
+    .menu-item-40 a {
+        background-image: url('../../shared/assets/img/social-youtube.gif');
+    }
+    .menu-item-41 a {
+        background-image: url('../../shared/assets/img/social-twitter.gif');
+    }
+    .menu-item-42 a {
+        background-image: url('../../shared/assets/img/social-strava.gif');
+    }
+    .menu-item-43 a {
+        background-image: url('../../shared/assets/img/social-whatsapp.gif');
+    }
+
+    &:after {
+        content: '';
+        width: 100%;
+        height: $breakpointTablet;
+        display: block;
+        background: url('../../shared/assets/img/home-cyclist.png') center bottom no-repeat;
+        background-size: contain;
+    }
+}
+
+@media (min-width: $breakpointTabletHorizontal) {
+    .site-footer {
+        &:after {
+            width: 50%;
+            right: 10px;
+            bottom: 0;
+            position: absolute;
+            background-position: right bottom;
+        }
+    }
+}
+
+@media (min-width: $breakpointDesktop) {
+    .site-footer {
+        z-index: 1;
+
+        nav {
+            padding: 45px 0;
+            margin: 0 20px;
+            max-width: $breakpointMaximum;
+        }
+
+        ul {
+            font-size: calc($fontSizeDesktop * 1.28571428571429); // 18px
+            width: 66%;
+            overflow: auto;
+
+            li {
+                float: left;
+                width: 50%;
+            }
+
+            a {
+                background-position: 20px center;
+                padding-left: 90px;
+            }
+        }
+
+        &:after {
+            width: 33%;
+            height: 809px;
+        }
+    }
+}
