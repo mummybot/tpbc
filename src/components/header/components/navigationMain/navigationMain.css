@@ -3,9 +3,11 @@
     font-family: 'helvetica_neuethin';
     font-size: calc($fontSizeMobile * 2); // 28px
     letter-spacing: 1px;
+    margin-top: 20px;
 
     li {
         display: block;
+        margin-bottom: 10px;
     }
 
     a {
@@ -18,10 +20,11 @@
     .navigationMain {
         font-size: calc($fontSizeTablet * 1.71428571428571); // 24px
         margin-top: 32px;
+        padding-top: 0;
 
         li {
             display: inline-block;
-            margin-right: 50px;
+            margin-right: 0 50px 0 0;
         }
     }
 }

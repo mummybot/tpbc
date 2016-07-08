@@ -6,8 +6,8 @@ $dimensions: 32px;
 .hamburger {
     display: block;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
     line-height: 1;
     font-size: $dimensions;
     @mixin replace $dimensions $dimensions;
