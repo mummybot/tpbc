@@ -75,31 +75,33 @@ export default React.createClass({
     }
   },
   handleHashChange() {
-    if (this.state.menu === OPEN) {
-      this.setState({
-        menu: TRANSITION_OPEN
-      }, () => {
-        setTimeout(() => {
-          this.setState({
-            menu: CLOSED
-          }, this.updateBrowser);
-        }, 150);
-      });
-    } else {
-      this.setState({
-        menu: TRANSITION_CLOSED
-      }, () => {
-        setTimeout(() => {
-          this.setState({
-            menu: OPEN
-          }, this.updateBrowser);
-        }, 150);
-      });
+    if (window.location.hash && window.location.hash.indexOf('menu') !== -1) {
+      if (this.state.menu === OPEN) {
+        this.setState({
+          menu: TRANSITION_OPEN
+        }, () => {
+          setTimeout(() => {
+            this.setState({
+              menu: CLOSED
+            }, this.updateBrowser);
+          }, 150);
+        });
+      } else {
+        this.setState({
+          menu: TRANSITION_CLOSED
+        }, () => {
+          setTimeout(() => {
+            this.setState({
+              menu: OPEN
+            }, this.updateBrowser);
+          }, 150);
+        });
+      }
     }
   },
   toggle() {
     if (this.state.menu === OPEN) {
-      hashHistory.push('/');
+      hashHistory.push('/menu/close');
     } else {
       hashHistory.push('/menu/open');
     }
