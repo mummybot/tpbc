@@ -37,7 +37,7 @@ get_header(); ?>
 
         <section class="section sectionHomeContent">
         <?php
-        // Get Our sponsors page
+        // Get "Our sponsors" page
         global $post;
         $post = get_post( 2 );
         setup_postdata($post);
@@ -48,26 +48,6 @@ get_header(); ?>
              */
             get_template_part( 'template-parts/content', get_post_format() );
         ?>
-        </section>
-
-        <section class="inverse section sectionHomeBottom">
-            <div class="colWrapper colVariant01">
-                <div class="col3">
-                    <?php if ( is_active_sidebar( 'home_bottom_widgets_1' ) ) : ?>
-                        <?php dynamic_sidebar( 'home_bottom_widgets_1' ); ?>
-                    <?php endif; ?>
-                </div>
-                <div class="col3">
-                    <?php if ( is_active_sidebar( 'home_bottom_widgets_2' ) ) : ?>
-                        <?php dynamic_sidebar( 'home_bottom_widgets_2' ); ?>
-                    <?php endif; ?>
-                </div>
-                <div class="col3">
-                    <?php if ( is_active_sidebar( 'home_bottom_widgets_3' ) ) : ?>
-                        <?php dynamic_sidebar( 'home_bottom_widgets_3' ); ?>
-                    <?php endif; ?>
-                </div>
-            </div>
         </section>
 
 <?php get_footer(); ?>

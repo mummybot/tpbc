@@ -1,5 +1,13 @@
 @import './variables.css';
 
+body {
+    background-color: $background;
+
+    &.home {
+        background-color: $inverseForeground;
+    }
+}
+
 // Our sponsors
 .post-2 {
     p {
