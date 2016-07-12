@@ -1,14 +1,47 @@
 @import './variables.css';
 
-.comments-area {
+.comments-area,
+.comment-respond {
+    margin-bottom: calc($fontSizeMobile * 6); // 72px
     padding-top: calc($fontSizeMobile * 6); // 72px
     border-top: 1px solid $foreground;
 
+    .comment-list {
+        margin-bottom: calc($fontSizeMobile * 6); // 72px
+    }
+
+    label {
+        display: inline-block;
+        min-width: 100px;
+    }
+
+    small {
+        font-size: 33%;
+    }
+
+    .comment-meta {
+        overflow: auto;
+        margin-bottom: 10px;
+
+        img {
+            float: left;
+            margin-right: 20px;
+        }
+    }
+
+    .comment {
+        margin-top: 20px;
+    }
 }
 
 @media (min-width: $breakpointDesktop) {
-    .comments-area {
+    .comments-area,
+    .comment-respond {
         padding-top: calc($fontSizeTablet * 3.42857142857143); // 48px
-        margin: 0 20px;
+        margin: 0 20px calc($fontSizeTablet * 3.42857142857143); // 48px
+
+        .comment-list {
+            margin-bottom: calc($fontSizeTablet * 3.42857142857143); // 48px
+        }
     }
 }
