@@ -1,0 +1,14 @@
+@import './variables.css';
+
+.entry-footer {
+    & > span {
+        display: block;
+        margin-top: 5px;
+
+        img {
+            float: left;
+            margin-right: 20px;
+        }
+    }
+    margin-bottom: calc($fontSizeMobile * 6); // 72px
+}

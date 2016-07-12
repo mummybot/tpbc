@@ -29,6 +29,11 @@
     margin: 45px 0;
 }
 
+#secondary {
+    border-top: 1px solid $foreground;
+    padding-top: calc($fontSizeMobile * 6); // 72px
+}
+
 article {
     padding: 0 5px;
 }
@@ -73,6 +78,8 @@ article {
     }
 
     #secondary {
+        padding: 0;
+        border-top: none;
         border-left: 1px solid $foreground;
     }
 }

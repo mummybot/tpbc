@@ -1,0 +1,17 @@
+@import './variables.css';
+
+.pagination {
+    padding-top: calc($fontSizeMobile * 6); // 72px
+    border-top: 1px solid $foreground;
+
+    .nav-links {
+        text-align: center;
+    }
+}
+
+@media (min-width: $breakpointDesktop) {
+    .pagination {
+        padding-top: calc($fontSizeTablet * 3.42857142857143); // 48px
+        margin: 0 20px;
+    }
+}

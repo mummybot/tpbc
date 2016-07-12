@@ -3,9 +3,9 @@
 .section {
     padding-top: 45px;
     margin: 0 auto;
+}
 
-    &.inverse {
-        color: $inverseForeground;
-        background-color: $inverseBackground;
-    }
+.inverse {
+    color: $inverseForeground;
+    background-color: $inverseBackground;
 }
