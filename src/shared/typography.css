@@ -38,6 +38,12 @@ h3, .h3 {
     margin-bottom: $fontSizeMobile; // 12px
 }
 
+#main {
+    h1, .h1 {
+        margin-bottom: calc($fontSizeMobile * 4); // 48px
+    }
+}
+
 ul, ol, p {
     margin: 0 0 $fontSizeMobile;
 }
@@ -93,7 +99,18 @@ h1, .h1 {
         margin-bottom: $fontSizeTablet; // 14px
     }
 
+    #main {
+        h1, .h1 {
+            margin-bottom: calc($fontSizeTablet * 3.42857142857143); // 48px
+        }
+    }
+
     ul, ol, p {
         margin: 0 0 $fontSizeTablet; // 14px
+    }
+    #content {
+        h1, .h1 {
+            font-size: calc($fontSizeTablet * 4.28571428571429); // 60px
+        }
     }
 }

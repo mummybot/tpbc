@@ -7,7 +7,8 @@
     z-index: 0;
 }
 
-.colWrapper {
+.colWrapper,
+.site-content {
     display: flex;
     flex-flow: row wrap;
     padding: 0 5px;
@@ -15,10 +16,17 @@
 
 .col1,
 .col2,
-.col3 {
+.col3,
+#primary,
+#secondary {
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
+}
+
+#primary,
+#secondary {
+    margin: 45px 0;
 }
 
 article {
@@ -27,7 +35,7 @@ article {
 
 @media (min-width: $breakpointTablet) {
     .col2,
-    .col3 {
+    .col3{
         width: 50%;
     }
 
@@ -40,21 +48,31 @@ article {
 }
 
 @media (min-width: $breakpointDesktop) {
-    .col2 {
+    .col2,
+    #primary {
         width: 66%;
     }
     .col3,
-    .colVariant01 .col3:first-child {
+    .colVariant01 .col3:first-child,
+    #secondary {
         width: 33%;
     }
-    .colWrapper {
+    .colWrapper,
+    .site-content {
         margin: 0 auto;
         padding: 0;
         max-width: $breakpointMaximum;
+    }
+    .home .site-content {
+        max-width: auto;
     }
 
     article {
         padding: 0;
         margin: 0 20px;
+    }
+
+    #secondary {
+        border-left: 1px solid $foreground;
     }
 }
