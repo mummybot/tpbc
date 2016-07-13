@@ -52,6 +52,7 @@
         display: block;
         background: url('./assets/img/home-cyclist.png') center bottom no-repeat;
         background-size: contain;
+        height: 600px;
     }
 }
 
@@ -63,6 +64,7 @@
             bottom: 0;
             position: absolute;
             background-position: right bottom;
+            height: 650px;
         }
     }
 }
@@ -95,7 +97,7 @@
 
         &:after {
             width: 33%;
-            height: 809px;
+            height: 700px;
         }
     }
 }
