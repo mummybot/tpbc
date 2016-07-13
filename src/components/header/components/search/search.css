@@ -65,7 +65,7 @@
             display: block;
             width: 25px;
             height: 25px;
-            background: url('../../../../shared/assets/img/search-icon.png') 0 0 no-repeat;
+            background: url('./assets/img/search-icon.png') 0 0 no-repeat;
         }
     }
 }

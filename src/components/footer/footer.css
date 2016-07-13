@@ -30,19 +30,19 @@
         }
     }
     .menu-item-39 a {
-        background-image: url('../../shared/assets/img/social-facebook.gif');
+        background-image: url('./assets/img/social-facebook.gif');
     }
     .menu-item-40 a {
-        background-image: url('../../shared/assets/img/social-youtube.gif');
+        background-image: url('./assets/img/social-youtube.gif');
     }
     .menu-item-41 a {
-        background-image: url('../../shared/assets/img/social-twitter.gif');
+        background-image: url('./assets/img/social-twitter.gif');
     }
     .menu-item-42 a {
-        background-image: url('../../shared/assets/img/social-strava.gif');
+        background-image: url('./assets/img/social-strava.gif');
     }
     .menu-item-43 a {
-        background-image: url('../../shared/assets/img/social-whatsapp.gif');
+        background-image: url('./assets/img/social-whatsapp.gif');
     }
 
     &:after {
@@ -50,7 +50,7 @@
         width: 100%;
         height: $breakpointTablet;
         display: block;
-        background: url('../../shared/assets/img/home-cyclist.png') center bottom no-repeat;
+        background: url('./assets/img/home-cyclist.png') center bottom no-repeat;
         background-size: contain;
     }
 }
