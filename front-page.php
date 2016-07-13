@@ -12,24 +12,24 @@
 get_header(); ?>
         <?php include(dirname(__FILE__).'/src/components/tagline/tagline.php'); ?>
 
-        <section>
-            <div class="container col1"><h2>Gallery</h2></div>
+        <section class="swiper">
+            <?php include(dirname(__FILE__).'/src/components/swiper/swiper.php'); ?>
         </section>
         <section class="inverse section sectionHomeTop">
             <div class="colWrapper colVariant01">
                 <div class="col3">
-                    <?php if ( is_active_sidebar( 'home_top_widgets_1' ) ) : ?>
-                        <?php dynamic_sidebar( 'home_top_widgets_1' ); ?>
+                    <?php if ( is_active_sidebar( 'home_widgets_1' ) ) : ?>
+                        <?php dynamic_sidebar( 'home_widgets_1' ); ?>
                     <?php endif; ?>
                 </div>
                 <div class="col3">
-                    <?php if ( is_active_sidebar( 'home_top_widgets_2' ) ) : ?>
-                        <?php dynamic_sidebar( 'home_top_widgets_2' ); ?>
+                    <?php if ( is_active_sidebar( 'home_widgets_2' ) ) : ?>
+                        <?php dynamic_sidebar( 'home_widgets_2' ); ?>
                     <?php endif; ?>
                 </div>
                 <div class="col3">
-                    <?php if ( is_active_sidebar( 'home_top_widgets_3' ) ) : ?>
-                        <?php dynamic_sidebar( 'home_top_widgets_3' ); ?>
+                    <?php if ( is_active_sidebar( 'home_widgets_3' ) ) : ?>
+                        <?php dynamic_sidebar( 'home_widgets_3' ); ?>
                     <?php endif; ?>
                 </div>
             </div>

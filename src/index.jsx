@@ -7,6 +7,7 @@ import _navigationSecondary from
 import _tagline from './components/tagline/tagline';
 import routes from './shared/routes';
 import s from './shared/core.css';
+import _swiper from './components/swiper/swiper';
 
 ReactDom.render(
   <Router history={hashHistory}>{routes}</Router>,

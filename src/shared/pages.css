@@ -8,6 +8,11 @@ body {
 
         .site-content {
             padding: 0;
+            max-width: none;
+        }
+
+        .sectionHomeTop {
+            width: 100%;
         }
     }
 }
