@@ -1,8 +1,8 @@
 import Hamburger from './components/hamburger/hamburger';
+import Search from './components/search/search';
 import React from 'react';
 import _logo from './components/logo/logo';
 import _navigationMain from './components/navigationMain/navigationMain';
-import _search from './components/search/search';
 import {hashHistory} from 'react-router';
 import insertExistingHTML from '../../shared/insertExistingHTML';
 import s from './header.css';
@@ -113,10 +113,8 @@ export default React.createClass({
         {insertExistingHTML(
           'header .container .navigationMain'
         )}
-        {insertExistingHTML(
-          'header .container form'
-        )}
       </div>
+      <Search />
       <Hamburger toggle={this.toggle} menu={this.state.menu} />
     </div>;
   }

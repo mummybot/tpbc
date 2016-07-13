@@ -443,6 +443,15 @@ function tpbc_widget_tag_cloud_args( $args ) {
 }
 add_filter( 'widget_tag_cloud_args', 'tpbc_widget_tag_cloud_args' );
 
+// http://wpengineer.com/2258/change-the-search-url-of-wordpress/
+function fb_change_search_url_rewrite() {
+	if ( is_search() && ! empty( $_GET['s'] ) ) {
+		wp_redirect( home_url( "/search/" ) . urlencode( get_query_var( 's' ) ) );
+		exit();
+	}	
+}
+add_action( 'template_redirect', 'fb_change_search_url_rewrite' );
+
 // Hack for Webpack dev server
 if (DISABLE_CANONICAL == 'Y') {
 	remove_filter('template_redirect', 'redirect_canonical');

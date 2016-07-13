@@ -11,6 +11,7 @@ $dimensions: 32px;
     line-height: 1;
     font-size: $dimensions;
     @mixin replace $dimensions $dimensions;
+    z-index: 3;
 
     &::before {
         display: block;

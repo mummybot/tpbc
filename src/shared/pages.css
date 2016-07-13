@@ -12,7 +12,7 @@ body {
     }
 }
 
-.blog, .archive, .category {
+.blog, .archive, .category, .search {
     .entry-header h1 {
         padding-top: calc($fontSizeMobile * 6); // 72px
         border-top: 1px solid $foreground;
@@ -27,7 +27,7 @@ body {
 }
 
 @media (min-width: $breakpointDesktop) {
-    .blog .archive, .category {
+    .blog .archive, .category, .search {
         .entry-header h1 {
             padding-top: calc($fontSizeTablet * 3.42857142857143); // 48px
         }
