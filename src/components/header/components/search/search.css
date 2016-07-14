@@ -44,14 +44,14 @@
         width: 25px;
 
         &.open {
-            width: 275px;
+            width: 285px;
         }
 
         div {
             position: absolute;
             top: 0;
             right: 25px;
-            width: 250px;
+            width: 260px;
         }
 
         button {
