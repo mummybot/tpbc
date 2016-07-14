@@ -35,6 +35,10 @@ get_header(); ?>
             </div>
         </section>
 
+        
+        <?php include(dirname(__FILE__).'/src/components/eventsHome/eventsHome.php'); ?>
+        
+
         <section class="section sectionHomeContent">
         <?php
         // Get "Our sponsors" page
