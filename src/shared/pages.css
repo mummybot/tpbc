@@ -55,4 +55,8 @@ body {
             margin-bottom: calc($fontSizeTablet * 3.42857142857143); // 48px
         }
     }
+
+    #main > .page-header {
+        padding: 0 20px;
+    }
 }
