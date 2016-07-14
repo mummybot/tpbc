@@ -8,9 +8,6 @@
  * @subpackage TPBC
  * @since TPBC 1.0
  */
-if (DISABLE_ABSOLUTE_LINKS == 'Y') {
-	ob_start('fix_links');
-}
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>

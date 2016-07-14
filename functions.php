@@ -473,6 +473,10 @@ function fix_links($input) {
 	return (str_replace(site_url(), "", $input));
 }
 
+if (DISABLE_ABSOLUTE_LINKS == 'Y') {
+	ob_start('fix_links');
+}
+
 /*
  * Add Featured Content functionality.
  *
@@ -481,4 +485,9 @@ function fix_links($input) {
  */
 if ( ! class_exists( 'Featured_Content' ) && 'plugins.php' !== $GLOBALS['pagenow'] ) {
 	require get_template_directory() . '/inc/featured-content.php';
+}
+
+add_action( 'init', 'allow_origin' );
+function allow_origin() {
+    header("Access-Control-Allow-Origin: *");
 }
