@@ -3,7 +3,7 @@
     font-family: 'helvetica_neuethin';
     font-size: calc($fontSizeMobile * 2); // 28px
     letter-spacing: 1px;
-    margin-top: 20px;
+    margin-top: 40px;
 
     li {
         display: block;
@@ -16,7 +16,7 @@
     }
 }
 
-@media (min-width: $breakpointTablet) {
+@media (min-width: $breakpointDesktop) {
     .navigationMain {
         font-size: calc($fontSizeTablet * 1.71428571428571); // 24px
         margin-top: 32px;

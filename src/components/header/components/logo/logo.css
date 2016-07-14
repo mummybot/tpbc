@@ -6,7 +6,7 @@
     margin: 0 0 0 20px;
 }
 
-@media (min-width: $breakpointTablet) {
+@media (min-width: $breakpointDesktop) {
     .tpbc-logo {
         font-size: $fontSizeTablet;
     }

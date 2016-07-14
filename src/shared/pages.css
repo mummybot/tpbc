@@ -24,6 +24,13 @@ body {
     }
 }
 
+// Home page
+.sectionHomeContent {
+    h1 {
+        margin-bottom: calc($fontSizeTablet * 3.42857142857143); // 48px
+    }
+}
+
 // Our sponsors
 .post-2 {
     p {

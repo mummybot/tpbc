@@ -26,7 +26,7 @@
     }
 }
 
-@media (min-width: $breakpointTablet) {
+@media (min-width: $breakpointDesktop) {
     .header {
         // React adds an extra div
         & > *, 

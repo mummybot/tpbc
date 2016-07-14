@@ -1,14 +1,29 @@
 @import '../../../../shared/variables.css';
 
 .searchComponent {
-    position: relative;
+    position: absolute;
     width: auto;
-    height: 21px;
-    margin: 10px 5px;
+    height: 25px;
+    margin: 0;
     overflow: hidden;
     cursor: pointer;
     transition: width 0.3s cubic-bezier(.54,1.07,.66,.98);
     z-index: 1;
+
+    right: 12px;
+    top: 52px;
+    width: 25px;
+
+    &.open {
+        width: 285px;
+    }
+
+    div {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        width: 260px;
+    }
 
     input {
         border: 0;
@@ -30,42 +45,29 @@
     }
 
     span {
-        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        width: 25px;
+        height: 25px;
+        background: url('./assets/img/search-icon.png') 0 0 no-repeat;
     }
 }
 
 @media (min-width: $breakpointTablet) {
     .searchComponent {
-        position: absolute;
-        margin: 0;
         height: 25px;
-        right: 20px;
-        top: 36px;
-        width: 25px;
-
-        &.open {
-            width: 285px;
-        }
-
-        div {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            width: 260px;
-        }
 
         button {
             font-size: calc($fontSizeTablet); // 14px;
         }
+    }
+}
 
-        span {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: block;
-            width: 25px;
-            height: 25px;
-            background: url('./assets/img/search-icon.png') 0 0 no-repeat;
-        }
+@media (min-width: $breakpointDesktop) {
+    .searchComponent {
+        right: 20px;
+        top: 36px;
     }
 }

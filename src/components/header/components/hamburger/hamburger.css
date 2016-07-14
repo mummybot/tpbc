@@ -49,7 +49,7 @@ $dimensions: 32px;
     }
 }
 
-@media (min-width: $breakpointTablet) {
+@media (min-width: $breakpointDesktop) {
     .hamburger {
         display: none;
     }
