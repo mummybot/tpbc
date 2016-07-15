@@ -56,6 +56,12 @@ function tpbc_setup() {
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
+	// Add support for featured content.
+	add_theme_support( 'featured-content', array(
+		'featured_content_filter' => 'tpbc_get_featured_posts',
+		'max_posts' => 6,
+	) );
+
 	/*
 	 * Let WordPress manage the document title.
 	 * By adding theme support, we declare that this theme does not use a
@@ -139,29 +145,63 @@ add_action( 'after_setup_theme', 'tpbc_content_width', 0 );
  */
 function tpbc_widgets_init() {
 	register_sidebar( array(
+		'name'          => 'Home widgets left',
+		'id'            => 'home_widgets_1',
+		'before_widget' => '<div class="widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => 'Home widgets centre',
+		'id'            => 'home_widgets_2',
+		'before_widget' => '<div class="widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => 'Home widgets right',
+		'id'            => 'home_widgets_3',
+		'before_widget' => '<div class="widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => 'Content bottom widgets left',
+		'id'            => 'content_bottom_widgets_1',
+		'before_widget' => '<div class="widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => 'Content bottom widgets centre',
+		'id'            => 'content_bottom_widgets_2',
+		'before_widget' => '<div class="widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => 'Content bottom widgets right',
+		'id'            => 'content_bottom_widgets_3',
+		'before_widget' => '<div class="widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'tpbc' ),
 		'id'            => 'sidebar-1',
 		'description'   => __( 'Add widgets here to appear in your sidebar.', 'tpbc' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Content Bottom 1', 'tpbc' ),
-		'id'            => 'sidebar-2',
-		'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'tpbc' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Content Bottom 2', 'tpbc' ),
-		'id'            => 'sidebar-3',
-		'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'tpbc' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -245,7 +285,10 @@ function tpbc_scripts() {
 		'expand'   => __( 'expand child menu', 'tpbc' ),
 		'collapse' => __( 'collapse child menu', 'tpbc' ),
 	) );
-	
+
+	// To allow eval to work
+	wp_enqueue_script( 'react', get_template_directory_uri() . '/node_modules/react/dist/react.min.js', array(), '1.0.0' );
+
 	// Webpack built assets
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/build/styles.css', array(), '1.0.0' );
 
@@ -386,6 +429,38 @@ function tpbc_widget_tag_cloud_args( $args ) {
 }
 add_filter( 'widget_tag_cloud_args', 'tpbc_widget_tag_cloud_args' );
 
+// http://wpengineer.com/2258/change-the-search-url-of-wordpress/
+function fb_change_search_url_rewrite() {
+	if ( is_search() && ! empty( $_GET['s'] ) ) {
+		wp_redirect( home_url( "/search/" ) . urlencode( get_query_var( 's' ) ) );
+		exit();
+	}	
+}
+add_action( 'template_redirect', 'fb_change_search_url_rewrite' );
+
+/**
+ * Getter function for Featured Content Plugin.
+ *
+ * @return array An array of WP_Post objects.
+ */
+function tpbc_get_featured_posts() {
+	/**
+	 * Filter the featured posts to return in TPBC.
+	 *
+	 * @param array|bool $posts Array of featured posts, otherwise false.
+	 */
+	return apply_filters( 'tpbc_get_featured_posts', array() );
+}
+
+/**
+ * A helper conditional function that returns a boolean value.
+ *
+ * @return bool Whether there are featured posts.
+ */
+function tpbc_has_featured_posts() {
+	return ! is_paged() && (bool) tpbc_get_featured_posts();
+}
+
 // Hack for Webpack dev server
 if (DISABLE_CANONICAL == 'Y') {
 	remove_filter('template_redirect', 'redirect_canonical');
@@ -396,4 +471,23 @@ if (DISABLE_CANONICAL == 'Y') {
 // http://stackoverflow.com/questions/9986335/wordpress-and-hardcoded-domain-names-in-url
 function fix_links($input) {
 	return (str_replace(site_url(), "", $input));
+}
+
+if (DISABLE_ABSOLUTE_LINKS == 'Y') {
+	ob_start('fix_links');
+}
+
+/*
+ * Add Featured Content functionality.
+ *
+ * To overwrite in a plugin, define your own Featured_Content class on or
+ * before the 'setup_theme' hook.
+ */
+if ( ! class_exists( 'Featured_Content' ) && 'plugins.php' !== $GLOBALS['pagenow'] ) {
+	require get_template_directory() . '/inc/featured-content.php';
+}
+
+add_action( 'init', 'allow_origin' );
+function allow_origin() {
+    header("Access-Control-Allow-Origin: *");
 }

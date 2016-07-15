@@ -7,7 +7,8 @@
     z-index: 0;
 }
 
-section {
+.colWrapper,
+.site-content {
     display: flex;
     flex-flow: row wrap;
     padding: 0 5px;
@@ -15,15 +16,31 @@ section {
 
 .col1,
 .col2,
-.col3 {
+.col3,
+#primary,
+#secondary {
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
 }
 
+#primary,
+#secondary {
+    margin: 45px 0;
+}
+
+#secondary {
+    border-top: 1px solid $foreground;
+    padding-top: calc($fontSizeMobile * 6); // 72px
+}
+
+article {
+    padding: 0 5px;
+}
+
 @media (min-width: $breakpointTablet) {
     .col2,
-    .col3 {
+    .col3{
         width: 50%;
     }
 
@@ -36,18 +53,30 @@ section {
 }
 
 @media (min-width: $breakpointDesktop) {
-    .col2 {
+    .col2,
+    #primary {
         width: 66%;
     }
     .col3,
-    .colVariant01 .col3:first-child {
+    .colVariant01 .col3:first-child,
+    #secondary {
         width: 33%;
     }
+    .colWrapper,
+    .site-content {
+        margin: 0 auto;
+        padding: 0;
+        max-width: $breakpointMaximum;
+    }
 
-}
+    article {
+        padding: 0;
+        margin: 0 20px;
+    }
 
-@media (min-width: $breakpointMaximum) {
-    #page {
-        width: $breakpointMaximum;
+    #secondary {
+        padding: 0;
+        border-top: none;
+        border-left: 1px solid $foreground;
     }
 }

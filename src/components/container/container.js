@@ -1,1 +1,1 @@
-import container from './container.css';
+import s from './container.css';

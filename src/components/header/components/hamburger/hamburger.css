@@ -4,14 +4,14 @@
 $dimensions: 32px;
 
 .hamburger {
-    color: $inverseForeground;
     display: block;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
     line-height: 1;
     font-size: $dimensions;
     @mixin replace $dimensions $dimensions;
+    z-index: 3;
 
     &::before {
         display: block;
@@ -19,9 +19,12 @@ $dimensions: 32px;
         height: $dimensions;
         width: $dimensions;
         top: 0;
-        left: -$dimensions;
+        left: 0;
+        opacity: 1;
+        text-indent: 0;
+        text-align: center;
+        transition: opacity 0.15s ease-out;
     }
-
     &.closed {
         &::before {
             content:'\2630'; // ☰
@@ -31,5 +34,23 @@ $dimensions: 32px;
         &::before {
             content:'\276e'; // ❮
         }
+    }
+    &.transitionClosed {
+        &::before {
+            content:'\2630'; // ☰
+            opacity: 0;
+        }
+    }
+    &.transitionOpen {
+        &::before {
+            content:'\276e'; // ❮
+            opacity: 0;
+        }
+    }
+}
+
+@media (min-width: $breakpointDesktop) {
+    .hamburger {
+        display: none;
     }
 }

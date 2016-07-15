@@ -4,12 +4,17 @@
          url('./assets/fonts/helveticaneue-thin-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 @font-face {
     font-family: 'helvetica_neuebold';
     src: url('./assets/fonts/HelveticaNeue-Bold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
+}
+@font-face {
+    font-family: 'blancblack_italic';
+    src: url('./assets/fonts/blanc-blackitalic-webfont.woff2') format('woff2'),
+         url('./assets/fonts/blanc-blackitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }

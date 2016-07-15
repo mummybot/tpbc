@@ -18,7 +18,7 @@ const browserSyncPort = 3000,
       app: [
         `webpack-dev-server/client?${webpackServerURL}/`,
         'webpack/hot/only-dev-server',
-        path.join(__dirname, 'src/index.js')
+        path.join(__dirname, 'src/index.jsx')
       ]
     },
     output: {
@@ -26,7 +26,7 @@ const browserSyncPort = 3000,
       filename: '[name]-bundle.js',
       publicPath: buildPath
     },
-    devtool: 'eval',
+    devtool: 'source-map',
     devServer: {
       contentBase: buildPath,
       proxy: {
@@ -47,6 +47,9 @@ const browserSyncPort = 3000,
         }
       }
     },
+    resolve: {
+      extensions: ['', '.js', '.jsx']
+    },
     module: {
       loaders: [
         {
@@ -62,8 +65,7 @@ const browserSyncPort = 3000,
           ],
           loader: 'babel-loader',
           query: {
-            // plugins: ['transform-runtime'],
-            presets: ['react', 'es2015']
+            presets: ['es2015', 'react']
           }
         },
         {
@@ -76,7 +78,9 @@ const browserSyncPort = 3000,
         },
         {
           test: /\.s?css$/,
-          loader: ExtractTextPlugin.extract('style-loader','css-loader?sourceMap&importLoaders=1!postcss-loader?parser=postcss-scss')
+          loader: ExtractTextPlugin.extract('style-loader',
+          `css-loader?sourceMap&importLoaders=1
+          !postcss-loader?parser=postcss-scss`)
         }
       ]
     },
@@ -91,6 +95,11 @@ const browserSyncPort = 3000,
       ];
     },
     plugins: [
+      new webpack.DefinePlugin(
+        {
+          IN_BROWSER: true
+        }
+      ),
       new BrowserSyncPlugin(
         {
           host: 'localhost',

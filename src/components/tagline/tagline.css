@@ -2,9 +2,11 @@
 
 .tagline {
     font-family: 'helvetica_neuethin';
-    font-size: calc($fontSizeMobile * 2); // 28px
+    font-size: calc($fontSizeMobile * 2); // 24px
     text-align: center;
-    padding: 10px 0;
+    margin: 0 auto;
+    padding: 20px 0;
+    width: 100%;
 
     background: $inverseForeground;
     color: $inverseBackground;
@@ -22,6 +24,7 @@
 
 @media (min-width: $breakpointTablet) {
     .tagline {
-        font-size: calc($fontSizeTablet * 2); // 24px
+        font-size: calc($fontSizeTablet * 2.14285714285714); // 30px
+        padding: 30px 20px;
     }
 }

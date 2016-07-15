@@ -1,3 +1,73 @@
-.search {
-    
+@import '../../../../shared/variables.css';
+
+.searchComponent {
+    position: absolute;
+    width: auto;
+    height: 25px;
+    margin: 0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: width 0.3s cubic-bezier(.54,1.07,.66,.98);
+    z-index: 1;
+
+    right: 12px;
+    top: 52px;
+    width: 25px;
+
+    &.open {
+        width: 285px;
+    }
+
+    div {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        width: 260px;
+    }
+
+    input {
+        border: 0;
+        width: 150px;
+        padding: 1px 5px 0;
+    }
+
+    button {
+        font-family: 'blancblack_italic', arial, sans-serif;
+        font-size: calc($fontSizeMobile); // 12px;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        color: $foreground;
+        border: 0;
+        background-color: $tpbcYellow;
+        padding: 2px 10px;
+        margin-left: 5px;
+    }
+
+    span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        width: 25px;
+        height: 25px;
+        background: url('./assets/img/search-icon.png') 0 0 no-repeat;
+    }
+}
+
+@media (min-width: $breakpointTablet) {
+    .searchComponent {
+        height: 25px;
+
+        button {
+            font-size: calc($fontSizeTablet); // 14px;
+        }
+    }
+}
+
+@media (min-width: $breakpointDesktop) {
+    .searchComponent {
+        right: 20px;
+        top: 36px;
+    }
 }

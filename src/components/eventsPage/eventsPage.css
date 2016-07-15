@@ -1,0 +1,36 @@
+@import '../../shared/variables.css';
+
+#event-board {
+    .eo-eb-filter {
+        text-transform: uppercase;
+        display: inline-block;
+        text-decoration: none;
+        background-color: $tpbcYellow;
+        padding: 5px 10px 3px;
+        margin: 0 5px 0 0;
+
+        &:hover,
+        &:active {
+            background-color: $tpbcRed;
+        }
+    }
+
+    #event-board-items {
+        .eo-eb-event-title {
+            text-transform: uppercase;
+        }
+
+        .eo-eb-date-month {
+            color: $foreground;
+            text-transform: uppercase;
+        }
+    }
+
+    // Hide top level cateogries
+    .eo-eb-filter-category-0,  // Uncategorized
+    .eo-eb-filter-category-8,  // Location
+    .eo-eb-filter-category-5,  // Organiser
+    .eo-eb-filter-category-2 { // Type
+        display: none;
+    }
+}

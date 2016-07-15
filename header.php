@@ -8,9 +8,6 @@
  * @subpackage TPBC
  * @since TPBC 1.0
  */
-if (DISABLE_ABSOLUTE_LINKS == 'Y') {
-	ob_start('fix_links');
-}
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
@@ -25,101 +22,8 @@ if (DISABLE_ABSOLUTE_LINKS == 'Y') {
 
 <body <?php body_class(); ?>>
 
+
 <?php include('src/components/header/header.php'); ?>
+
 <div id="page">
-	<?php if ( is_front_page() && is_home() ) : ?>
-		<?php include(dirname(__FILE__).'/src/components/tagline/tagline.php'); ?>
-	<?php endif ?>
-	<section>
-		<div class="container col1"><h2>Gallery</h2></div>
-	</section>
-	<section class="colVariant01">
-		<div class="col3">
-			<div class="cmpt"><h2>News</h2></div>
-		</div>
-		<div class="col3">
-			<div class="container"><h2>About</h2></div>
-			<div class="container"><h2>Meet the team</h2></div>
-		</div>
-		<div class="col3">
-			<div class="container"><h2>Join FNB TPBC</h2></div>
-			<div class="container"><h2>Newsletter</h2></div>
-		</div>
-	</section>
-</div>
-
-
-<div id="page2" class="site" style="position: relative; z-index: 0;">
-
-	<div class="site-inner">
-		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'tpbc' ); ?></a>
-
-		<header id="masthead" class="site-header" role="banner">
-			<div class="site-header-main">
-				<div class="site-branding">
-					<?php if ( is_front_page() && is_home() ) : ?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php else : ?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-					<?php endif;
-
-					$description = get_bloginfo( 'description', 'display' );
-					if ( $description || is_customize_preview() ) : ?>
-						<p class="site-description"><?php echo $description; ?></p>
-					<?php endif; ?>
-				</div><!-- .site-branding -->
-
-				<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>
-					<button id="menu-toggle" class="menu-toggle"><?php _e( 'Menu', 'tpbc' ); ?></button>
-
-					<div id="site-header-menu" class="site-header-menu">
-						<?php if ( has_nav_menu( 'primary' ) ) : ?>
-							<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'tpbc' ); ?>">
-								<?php
-									wp_nav_menu( array(
-										'theme_location' => 'primary',
-										'menu_class'     => 'primary-menu',
-									 ) );
-								?>
-							</nav><!-- .main-navigation -->
-						<?php endif; ?>
-
-						<?php if ( has_nav_menu( 'social' ) ) : ?>
-							<nav id="social-navigation" class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'tpbc' ); ?>">
-								<?php
-									wp_nav_menu( array(
-										'theme_location' => 'social',
-										'menu_class'     => 'social-links-menu',
-										'depth'          => 1,
-										'link_before'    => '<span class="screen-reader-text">',
-										'link_after'     => '</span>',
-									) );
-								?>
-							</nav><!-- .social-navigation -->
-						<?php endif; ?>
-					</div><!-- .site-header-menu -->
-				<?php endif; ?>
-			</div><!-- .site-header-main -->
-
-			<?php if ( get_header_image() ) : ?>
-				<?php
-					/**
-					 * Filter the default tpbc custom header sizes attribute.
-					 *
-					 * @since TPBC 1.0
-					 *
-					 * @param string $custom_header_sizes sizes attribute
-					 * for Custom Header. Default '(max-width: 709px) 85vw,
-					 * (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px'.
-					 */
-					$custom_header_sizes = apply_filters( 'tpbc_custom_header_sizes', '(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px' );
-				?>
-				<div class="header-image">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<img src="<?php header_image(); ?>" srcset="<?php echo esc_attr( wp_get_attachment_image_srcset( get_custom_header()->attachment_id ) ); ?>" sizes="<?php echo esc_attr( $custom_header_sizes ); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-					</a>
-				</div><!-- .header-image -->
-			<?php endif; // End header image check. ?>
-		</header><!-- .site-header -->
-
-		<div id="content" class="site-content">
+	<div id="content" class="site-content">

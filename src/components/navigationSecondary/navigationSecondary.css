@@ -1,0 +1,43 @@
+@import '../../shared/variables.css';
+
+.navigationSecondary {
+    margin: 0 0 calc($fontSizeMobile * 6); // 72px
+    padding: 0 0 calc($fontSizeMobile * 6); // 72px
+    border-bottom: 1px solid $foreground;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        ul {
+            padding: 0 0 0 20px;
+        }
+    }
+    li {
+        margin-top: 15px;
+    }
+    a {
+        text-decoration: none;
+
+        &:hover,
+        &:active {
+            color: $tpbcYellow;
+        }
+    }
+    .current_page_item > a {
+        text-decoration: underline;
+
+        &:hover,
+        &:active {
+            text-decoration: none;
+        }
+    }
+}
+
+@media (min-width: $breakpointDesktop) {
+    .navigationSecondary {
+        padding-bottom: calc($fontSizeTablet * 3.42857142857143); // 48px
+        margin: 0 20px calc($fontSizeTablet * 3.42857142857143); // 48px
+    }
+}

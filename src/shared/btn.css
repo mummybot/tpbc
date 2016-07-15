@@ -1,0 +1,60 @@
+@import './variables.css';
+
+.btn,
+.inverse .btn {
+  font-family: 'blancblack_italic', arial, sans-serif;
+  font-size: calc($fontSizeMobile * 2); // 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: $foreground;
+  border: 2px solid $foreground;
+  background-color: $tpbcYellow;
+  position: relative;
+  padding: 4px 24px;
+  min-width: 150px;
+  display: inline-block;
+  white-space: nowrap;
+  margin-left: 20px;
+
+  &:link,
+  &:visited {
+    color: $foreground;
+  }
+
+  &:hover,
+  &:active {
+    color: $foreground;
+    background-color: $tpbcRed;
+    &::before,
+    &::after {
+        background-image: url('./assets/img/btn-arrow-hover.png');
+    }
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    top: -12px;
+    position: absolute;
+    width: 42px;
+    height: 62px;
+    background: url('./assets/img/btn-arrow.png') no-repeat 0 0;
+  }
+
+  &::before {
+    left: -26px;
+  }
+  &::after {
+    right: -26px;
+    transform: scaleX(-1);
+    filter: FlipH;
+  }
+}
+
+@media (min-width: $breakpointTablet) {
+    .btn {
+        font-size: calc($fontSizeTablet * 1.71428571428571); // 24px
+        margin-left: 0;
+    }
+}

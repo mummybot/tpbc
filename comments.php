@@ -60,6 +60,12 @@ if ( post_password_required() ) {
 
 		<?php the_comments_navigation(); ?>
 
+	<?php else: ?>
+
+		<div class="no-comments">
+			<p>No one has commented yet.</p>
+		</div>
+
 	<?php endif; // Check for have_comments(). ?>
 
 	<?php
@@ -73,6 +79,7 @@ if ( post_password_required() ) {
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
+			'class_submit' => 'btn'
 		) );
 	?>
 

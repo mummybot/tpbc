@@ -4,3 +4,10 @@
 @import './fonts.css';
 @import './typography.css';
 @import './layout.css';
+@import './section.css';
+@import './widget.css';
+@import './btn.css';
+@import './pages.css';
+@import './entry-footer.css';
+@import './pagination.css';
+@import './comments.css';

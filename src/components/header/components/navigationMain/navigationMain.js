@@ -1,1 +1,1 @@
-import navigationMain from './navigationMain.css';
+import s from './navigationMain.css';

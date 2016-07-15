@@ -2,33 +2,29 @@
 .navigationMain {
     font-family: 'helvetica_neuethin';
     font-size: calc($fontSizeMobile * 2); // 28px
+    letter-spacing: 1px;
+    margin-top: 40px;
 
     li {
         display: block;
+        margin-bottom: 10px;
     }
 
     a {
         text-decoration: none;
         text-transform: uppercase;
-
-        &:link,
-        &:visited {
-            color: $inverseForeground;
-        }
-        &:hover,
-        &:active {
-            color: $tpbcYellow;
-        }
     }
 }
 
-@media (min-width: $breakpointTablet) {
+@media (min-width: $breakpointDesktop) {
     .navigationMain {
-        font-size: calc($fontSizeTablet * 2); // 24px
+        font-size: calc($fontSizeTablet * 1.71428571428571); // 24px
+        margin-top: 32px;
+        padding-top: 0;
 
         li {
             display: inline-block;
-            margin-right: 10px;
+            margin: 0 50px 0 0;
         }
     }
 }
