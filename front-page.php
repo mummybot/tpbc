@@ -11,10 +11,7 @@
 
 get_header(); ?>
         <?php include(dirname(__FILE__).'/src/components/tagline/tagline.php'); ?>
-
-        <section class="swiper">
-            <?php include(dirname(__FILE__).'/src/components/swiper/swiper.php'); ?>
-        </section>
+        <?php include(dirname(__FILE__).'/src/components/swiper/swiper.php'); ?>
         <section class="inverse section sectionHomeTop">
             <div class="colWrapper colVariant01">
                 <div class="col3">

@@ -24,6 +24,25 @@ body {
     }
 }
 
+article {
+    .entry-summary {
+        p {
+            font-size: calc($fontSizeMobile * 2); // 24px
+        }
+    }
+    .post-thumbnail {
+        display: block;
+        margin-bottom: calc($fontSizeMobile * 3); // 36px
+        overflow: hidden;
+
+        img {
+            display: block;
+            width: auto;
+            height: auto;
+        }
+    }
+}
+
 // Home page
 .sectionHomeContent {
     h1 {

@@ -32,6 +32,17 @@
     .comment {
         margin-top: 20px;
     }
+
+    .no-comments {
+        margin-bottom: calc($fontSizeMobile * 6); // 72px
+        p {
+            margin: 0;
+        }
+    }
+}
+.comment-respond {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 @media (min-width: $breakpointDesktop) {
@@ -43,5 +54,13 @@
         .comment-list {
             margin-bottom: calc($fontSizeTablet * 3.42857142857143); // 48px
         }
+
+        .no-comments {
+            margin-bottom: calc($fontSizeTablet * 3.42857142857143); // 48px
+        }
+    }
+    .comment-respond {
+        margin-left: 0;
+        margin-right: 0;
     }
 }

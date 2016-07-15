@@ -60,6 +60,12 @@ if ( post_password_required() ) {
 
 		<?php the_comments_navigation(); ?>
 
+	<?php else: ?>
+
+		<div class="no-comments">
+			<p>No one has commented yet.</p>
+		</div>
+
 	<?php endif; // Check for have_comments(). ?>
 
 	<?php

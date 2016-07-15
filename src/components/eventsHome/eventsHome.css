@@ -14,7 +14,7 @@
 
     & > div {
         position: relative;
-        padding: 45px 20px;
+        padding: calc($fontSizeMobile * 6) 5px; // 72px
 
         &::before {
             content: '';
@@ -54,7 +54,7 @@
         a {
             display: block;
             text-decoration: none;
-            padding: 10px 0;
+            padding: 15px 0;
             display: flex;
             flex-flow: row nowrap;
 
@@ -78,6 +78,10 @@
 
 @media (min-width: $breakpointTablet) {
     .eventsHome {
+        & > div {
+            padding: calc($fontSizeTablet * 3.42857142857143) 20px; // 48px
+        }
+
         .col2 {
             ul {
                 margin-right: 20px;
@@ -87,6 +91,13 @@
             ul {
                 border-top: 1px solid $inverseForeground;
                 margin-left: 20px;
+            }
+        }
+        ul {
+            li {
+                a {
+                    padding: 10px 0;
+                }
             }
         }
     }
