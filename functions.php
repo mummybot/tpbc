@@ -269,8 +269,6 @@ add_action( 'wp_head', 'tpbc_javascript_detection', 0 );
  * @since TPBC 1.0
  */
 function tpbc_scripts() {
-	wp_enqueue_script( 'tpbc-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151112', true );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -278,13 +276,6 @@ function tpbc_scripts() {
 	if ( is_singular() && wp_attachment_is_image() ) {
 		wp_enqueue_script( 'tpbc-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20151104' );
 	}
-
-	wp_enqueue_script( 'tpbc-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20151204', true );
-
-	wp_localize_script( 'tpbc-script', 'screenReaderText', array(
-		'expand'   => __( 'expand child menu', 'tpbc' ),
-		'collapse' => __( 'collapse child menu', 'tpbc' ),
-	) );
 
 	// To allow eval to work
 	wp_enqueue_script( 'react', get_template_directory_uri() . '/node_modules/react/dist/react.min.js', array(), '1.0.0' );
