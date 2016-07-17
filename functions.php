@@ -277,8 +277,8 @@ function tpbc_scripts() {
 		wp_enqueue_script( 'tpbc-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20151104' );
 	}
 
-	// To allow eval to work
-	wp_enqueue_script( 'react', get_template_directory_uri() . '/node_modules/react/dist/react.min.js', array(), '1.0.0' );
+	// To allow eval to work for HTMLtoJSX
+	wp_enqueue_script( 'react', get_template_directory_uri() . '/build/vendors/node_modules/react/dist/react.min.js', array(), '1.0.0' );
 
 	// Webpack built assets
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/build/styles.css', array(), '1.0.0' );

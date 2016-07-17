@@ -38,6 +38,7 @@
     "babel-register": "^6.7.2",
     "browser-sync": "^2.11.1",
     "browser-sync-webpack-plugin": "^1.0.1",
+    "copy": "^0.2.3",
     "css-loader": "^0.23.1",
     "eslint": "^2.4.0",
     "eslint-plugin-react": "^4.2.3",
@@ -68,12 +69,13 @@
     "lint": "eslint ./src; exit 0",
     "start": "npm run setup",
     "clean": "rimraf build",
+    "copy": "copy ./node_modules/react/dist/react.min.js ./build/vendors/",
     "watch": "npm run watch:img",
     "watch:img": "watch 'npm run build:img' src --filter=tools/watch.img.js --ignoreDotFiles",
     "build:img": "ncp src build --filter=^[A-Za-z\\-/]*\\(\\.svg\\|\\.png\\|\\.jpg\\|\\.gif\\|$\\)",
-    "setup": "npm run clean & npm run watch & npm run start-dev-server",
+    "setup": "npm run clean & npm run copy & npm run watch & npm run start-dev-server",
     "start-dev-server": "webpack-dev-server 'webpack-dev-server/client?/' --host 0.0.0.0 --port 8080",
-    "build": "NODE_ENV=production webpack --progress --colors"
+    "build": "npm run clean & npm run copy & NODE_ENV=production webpack --progress --colors"
   },
   "preferGlobal": false,
   "private": true,
